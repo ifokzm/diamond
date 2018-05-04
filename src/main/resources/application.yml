@@ -1,0 +1,89 @@
+server:
+  port: 8080
+jasypt:
+  encryptor:
+    password: test
+spring:
+  application:
+    name: diamond
+  profiles:
+    active: dev
+  datasource:
+    #主库(1)
+    master:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:sqlserver://192.168.1.19:1433;DatabaseName=JiangSu_NanJing
+      #sa
+      username: ENC(G4nTINcbnHx5W8hHNJhvfA==)
+      password: ENC(G4nTINcbnHx5W8hHNJhvfA==)
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-While-Idle: true
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall,log4j,config
+    #从库(N)
+    slave:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:sqlserver://192.168.1.19:1433;DatabaseName=AnHui_HeFeiNew
+      # sa
+      username: ENC(G4nTINcbnHx5W8hHNJhvfA==)
+      password: ENC(G4nTINcbnHx5W8hHNJhvfA==)
+
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-While-Idle: true
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall,log4j,config
+  mvc:
+    view:
+      prefix: /static/
+      suffix:
+
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.ml.scmc.entity
+  #config-location: classpath:mybatis-config.xml
+
+#日志
+logging:
+  level:
+    ROOT: DEBUG
+    org.springframework: INFO
+    org.springframework.data: INFO
+    org.mybatis: DEBUG
+    com.ml.diamond: DEBUG
+  file: ../logs/logback.log
+
+---
+spring:
+  profiles: sit
+  datasource:
+      #主库
+      master:
+        url: jdbc:sqlserver://101.132.172.250:1433;DatabaseName=KR_OEE
+        username: ENC(6FC7Bu/rTXPW7YSnHJIQYg==)
+        password: ENC(eGJf2IFLEMuz3fxcJPAht45yMyE94+sZ)
+      #从库
+      slave:
+        url: jdbc:sqlserver://101.132.172.250:1433;DatabaseName=KR_MES
+        username: ENC(6FC7Bu/rTXPW7YSnHJIQYg==)
+        password: ENC(eGJf2IFLEMuz3fxcJPAht45yMyE94+sZ)

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ml.diamond.mapper.TransMapper" >
+  <resultMap id="BaseResultMap" type="com.ml.diamond.entity.Trans" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="Trans_Date" property="transDate" jdbcType="TIMESTAMP" />
+    <result column="Trans_Time" property="transTime" jdbcType="VARCHAR" />
+    <result column="Project_ID" property="projectId" jdbcType="VARCHAR" />
+    <result column="Project_Name" property="projectName" jdbcType="VARCHAR" />
+    <result column="District" property="district" jdbcType="VARCHAR" />
+    <result column="Building_ID" property="buildingId" jdbcType="VARCHAR" />
+    <result column="Building_Name" property="buildingName" jdbcType="VARCHAR" />
+    <result column="Room_ID" property="roomId" jdbcType="VARCHAR" />
+    <result column="Room_Name" property="roomName" jdbcType="VARCHAR" />
+    <result column="Trans_Type" property="transType" jdbcType="VARCHAR" />
+    <result column="Trans_Area" property="transArea" jdbcType="NUMERIC" />
+    <result column="trans_AvgPrice" property="transAvgprice" jdbcType="NUMERIC" />
+    <result column="Room_Usage" property="roomUsage" jdbcType="VARCHAR" />
+    <result column="Room_Type" property="roomType" jdbcType="VARCHAR" />
+    <result column="P_AvgPrice" property="pAvgprice" jdbcType="NUMERIC" />
+    <result column="Trans_FromTo" property="transFromto" jdbcType="VARCHAR" />
+    <result column="P_HouseAvgPrice" property="pHouseavgprice" jdbcType="NUMERIC" />
+    <result column="P_BusinessAvgPrice" property="pBusinessavgprice" jdbcType="NUMERIC" />
+    <result column="P_OfficeAvgPrice" property="pOfficeavgprice" jdbcType="NUMERIC" />
+    <result column="Trans_TotalPrice" property="transTotalprice" jdbcType="NUMERIC" />
+    <result column="Generalize_Name" property="generalizeName" jdbcType="VARCHAR" />
+    <result column="Room_M" property="roomM" jdbcType="VARCHAR" />
+    <result column="Room_RefPrice" property="roomRefprice" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, Trans_Date, Trans_Time, Project_ID, Project_Name, District, Building_ID, Building_Name, 
+    Room_ID, Room_Name, Trans_Type, Trans_Area, trans_AvgPrice, Room_Usage, Room_Type, 
+    P_AvgPrice, Trans_FromTo, P_HouseAvgPrice, P_BusinessAvgPrice, P_OfficeAvgPrice, 
+    Trans_TotalPrice, Generalize_Name, Room_M, Room_RefPrice
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Trans
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Trans
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ml.diamond.entity.Trans" >
+    insert into Trans (ID, Trans_Date, Trans_Time, 
+      Project_ID, Project_Name, District, 
+      Building_ID, Building_Name, Room_ID, 
+      Room_Name, Trans_Type, Trans_Area, 
+      trans_AvgPrice, Room_Usage, Room_Type, 
+      P_AvgPrice, Trans_FromTo, P_HouseAvgPrice, 
+      P_BusinessAvgPrice, P_OfficeAvgPrice, Trans_TotalPrice, 
+      Generalize_Name, Room_M, Room_RefPrice
+      )
+    values (#{id,jdbcType=INTEGER}, #{transDate,jdbcType=TIMESTAMP}, #{transTime,jdbcType=VARCHAR}, 
+      #{projectId,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{buildingId,jdbcType=VARCHAR}, #{buildingName,jdbcType=VARCHAR}, #{roomId,jdbcType=VARCHAR}, 
+      #{roomName,jdbcType=VARCHAR}, #{transType,jdbcType=VARCHAR}, #{transArea,jdbcType=NUMERIC}, 
+      #{transAvgprice,jdbcType=NUMERIC}, #{roomUsage,jdbcType=VARCHAR}, #{roomType,jdbcType=VARCHAR}, 
+      #{pAvgprice,jdbcType=NUMERIC}, #{transFromto,jdbcType=VARCHAR}, #{pHouseavgprice,jdbcType=NUMERIC}, 
+      #{pBusinessavgprice,jdbcType=NUMERIC}, #{pOfficeavgprice,jdbcType=NUMERIC}, #{transTotalprice,jdbcType=NUMERIC}, 
+      #{generalizeName,jdbcType=VARCHAR}, #{roomM,jdbcType=VARCHAR}, #{roomRefprice,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ml.diamond.entity.Trans" >
+    insert into Trans
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="transDate != null" >
+        Trans_Date,
+      </if>
+      <if test="transTime != null" >
+        Trans_Time,
+      </if>
+      <if test="projectId != null" >
+        Project_ID,
+      </if>
+      <if test="projectName != null" >
+        Project_Name,
+      </if>
+      <if test="district != null" >
+        District,
+      </if>
+      <if test="buildingId != null" >
+        Building_ID,
+      </if>
+      <if test="buildingName != null" >
+        Building_Name,
+      </if>
+      <if test="roomId != null" >
+        Room_ID,
+      </if>
+      <if test="roomName != null" >
+        Room_Name,
+      </if>
+      <if test="transType != null" >
+        Trans_Type,
+      </if>
+      <if test="transArea != null" >
+        Trans_Area,
+      </if>
+      <if test="transAvgprice != null" >
+        trans_AvgPrice,
+      </if>
+      <if test="roomUsage != null" >
+        Room_Usage,
+      </if>
+      <if test="roomType != null" >
+        Room_Type,
+      </if>
+      <if test="pAvgprice != null" >
+        P_AvgPrice,
+      </if>
+      <if test="transFromto != null" >
+        Trans_FromTo,
+      </if>
+      <if test="pHouseavgprice != null" >
+        P_HouseAvgPrice,
+      </if>
+      <if test="pBusinessavgprice != null" >
+        P_BusinessAvgPrice,
+      </if>
+      <if test="pOfficeavgprice != null" >
+        P_OfficeAvgPrice,
+      </if>
+      <if test="transTotalprice != null" >
+        Trans_TotalPrice,
+      </if>
+      <if test="generalizeName != null" >
+        Generalize_Name,
+      </if>
+      <if test="roomM != null" >
+        Room_M,
+      </if>
+      <if test="roomRefprice != null" >
+        Room_RefPrice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="transDate != null" >
+        #{transDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transTime != null" >
+        #{transTime,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingId != null" >
+        #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingName != null" >
+        #{buildingName,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null" >
+        #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomName != null" >
+        #{roomName,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="transArea != null" >
+        #{transArea,jdbcType=NUMERIC},
+      </if>
+      <if test="transAvgprice != null" >
+        #{transAvgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="roomUsage != null" >
+        #{roomUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="roomType != null" >
+        #{roomType,jdbcType=VARCHAR},
+      </if>
+      <if test="pAvgprice != null" >
+        #{pAvgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="transFromto != null" >
+        #{transFromto,jdbcType=VARCHAR},
+      </if>
+      <if test="pHouseavgprice != null" >
+        #{pHouseavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="pBusinessavgprice != null" >
+        #{pBusinessavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="pOfficeavgprice != null" >
+        #{pOfficeavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="transTotalprice != null" >
+        #{transTotalprice,jdbcType=NUMERIC},
+      </if>
+      <if test="generalizeName != null" >
+        #{generalizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="roomM != null" >
+        #{roomM,jdbcType=VARCHAR},
+      </if>
+      <if test="roomRefprice != null" >
+        #{roomRefprice,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ml.diamond.entity.Trans" >
+    update Trans
+    <set >
+      <if test="transDate != null" >
+        Trans_Date = #{transDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transTime != null" >
+        Trans_Time = #{transTime,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        Project_ID = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        Project_Name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        District = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingId != null" >
+        Building_ID = #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingName != null" >
+        Building_Name = #{buildingName,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null" >
+        Room_ID = #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomName != null" >
+        Room_Name = #{roomName,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        Trans_Type = #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="transArea != null" >
+        Trans_Area = #{transArea,jdbcType=NUMERIC},
+      </if>
+      <if test="transAvgprice != null" >
+        trans_AvgPrice = #{transAvgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="roomUsage != null" >
+        Room_Usage = #{roomUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="roomType != null" >
+        Room_Type = #{roomType,jdbcType=VARCHAR},
+      </if>
+      <if test="pAvgprice != null" >
+        P_AvgPrice = #{pAvgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="transFromto != null" >
+        Trans_FromTo = #{transFromto,jdbcType=VARCHAR},
+      </if>
+      <if test="pHouseavgprice != null" >
+        P_HouseAvgPrice = #{pHouseavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="pBusinessavgprice != null" >
+        P_BusinessAvgPrice = #{pBusinessavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="pOfficeavgprice != null" >
+        P_OfficeAvgPrice = #{pOfficeavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="transTotalprice != null" >
+        Trans_TotalPrice = #{transTotalprice,jdbcType=NUMERIC},
+      </if>
+      <if test="generalizeName != null" >
+        Generalize_Name = #{generalizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="roomM != null" >
+        Room_M = #{roomM,jdbcType=VARCHAR},
+      </if>
+      <if test="roomRefprice != null" >
+        Room_RefPrice = #{roomRefprice,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ml.diamond.entity.Trans" >
+    update Trans
+    set Trans_Date = #{transDate,jdbcType=TIMESTAMP},
+      Trans_Time = #{transTime,jdbcType=VARCHAR},
+      Project_ID = #{projectId,jdbcType=VARCHAR},
+      Project_Name = #{projectName,jdbcType=VARCHAR},
+      District = #{district,jdbcType=VARCHAR},
+      Building_ID = #{buildingId,jdbcType=VARCHAR},
+      Building_Name = #{buildingName,jdbcType=VARCHAR},
+      Room_ID = #{roomId,jdbcType=VARCHAR},
+      Room_Name = #{roomName,jdbcType=VARCHAR},
+      Trans_Type = #{transType,jdbcType=VARCHAR},
+      Trans_Area = #{transArea,jdbcType=NUMERIC},
+      trans_AvgPrice = #{transAvgprice,jdbcType=NUMERIC},
+      Room_Usage = #{roomUsage,jdbcType=VARCHAR},
+      Room_Type = #{roomType,jdbcType=VARCHAR},
+      P_AvgPrice = #{pAvgprice,jdbcType=NUMERIC},
+      Trans_FromTo = #{transFromto,jdbcType=VARCHAR},
+      P_HouseAvgPrice = #{pHouseavgprice,jdbcType=NUMERIC},
+      P_BusinessAvgPrice = #{pBusinessavgprice,jdbcType=NUMERIC},
+      P_OfficeAvgPrice = #{pOfficeavgprice,jdbcType=NUMERIC},
+      Trans_TotalPrice = #{transTotalprice,jdbcType=NUMERIC},
+      Generalize_Name = #{generalizeName,jdbcType=VARCHAR},
+      Room_M = #{roomM,jdbcType=VARCHAR},
+      Room_RefPrice = #{roomRefprice,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

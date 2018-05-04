@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ml.diamond.mapper.ProjectsMapper" >
+  <resultMap id="BaseResultMap" type="com.ml.diamond.entity.Projects" >
+    <id column="Project_ID" property="projectId" jdbcType="VARCHAR" />
+    <result column="Project_365Id" property="project365id" jdbcType="VARCHAR" />
+    <result column="Prjid" property="prjid" jdbcType="VARCHAR" />
+    <result column="Project_Name" property="projectName" jdbcType="VARCHAR" />
+    <result column="Generalize_Name" property="generalizeName" jdbcType="VARCHAR" />
+    <result column="Developer" property="developer" jdbcType="VARCHAR" />
+    <result column="DeveloperUrl" property="developerurl" jdbcType="VARCHAR" />
+    <result column="Open_date" property="openDate" jdbcType="TIMESTAMP" />
+    <result column="Project_LandName" property="projectLandname" jdbcType="VARCHAR" />
+    <result column="Agent" property="agent" jdbcType="VARCHAR" />
+    <result column="AgentUrl" property="agenturl" jdbcType="VARCHAR" />
+    <result column="Project_PlanningPermit" property="projectPlanningpermit" jdbcType="VARCHAR" />
+    <result column="District" property="district" jdbcType="VARCHAR" />
+    <result column="ProjectRegion_fc" property="projectregionFc" jdbcType="VARCHAR" />
+    <result column="ProjectRegion" property="projectregion" jdbcType="VARCHAR" />
+    <result column="TownRegion" property="townregion" jdbcType="VARCHAR" />
+    <result column="Location" property="location" jdbcType="VARCHAR" />
+    <result column="Online_TotalCount" property="onlineTotalcount" jdbcType="INTEGER" />
+    <result column="Online_TotalArea" property="onlineTotalarea" jdbcType="NUMERIC" />
+    <result column="Available_TotalCount" property="availableTotalcount" jdbcType="INTEGER" />
+    <result column="Available_TotalArea" property="availableTotalarea" jdbcType="NUMERIC" />
+    <result column="Available_CarPortCount" property="availableCarportcount" jdbcType="INTEGER" />
+    <result column="Booked_TotalCount" property="bookedTotalcount" jdbcType="INTEGER" />
+    <result column="Sold_TotalCount" property="soldTotalcount" jdbcType="INTEGER" />
+    <result column="Sold_TotalArea" property="soldTotalarea" jdbcType="NUMERIC" />
+    <result column="Sold_AvgPrice" property="soldAvgprice" jdbcType="NUMERIC" />
+    <result column="Sold_HouseAvgPrice" property="soldHouseavgprice" jdbcType="NUMERIC" />
+    <result column="Sold_OfficeAvgPrice" property="soldOfficeavgprice" jdbcType="NUMERIC" />
+    <result column="Sold_BusinessAvgPrice" property="soldBusinessavgprice" jdbcType="NUMERIC" />
+    <result column="Today_BookedCount" property="todayBookedcount" jdbcType="INTEGER" />
+    <result column="Today_SoldCount" property="todaySoldcount" jdbcType="INTEGER" />
+    <result column="Building_URL" property="buildingUrl" jdbcType="VARCHAR" />
+    <result column="InsertDate" property="insertdate" jdbcType="TIMESTAMP" />
+    <result column="IsUpdate" property="isupdate" jdbcType="INTEGER" />
+    <result column="BookedToday" property="bookedtoday" jdbcType="INTEGER" />
+    <result column="SoldToday" property="soldtoday" jdbcType="INTEGER" />
+    <result column="Month_HouseAvgPrice" property="monthHouseavgprice" jdbcType="NUMERIC" />
+    <result column="Month_OfficeAvgPrice" property="monthOfficeavgprice" jdbcType="NUMERIC" />
+    <result column="Month_BusinessAvgPrice" property="monthBusinessavgprice" jdbcType="NUMERIC" />
+    <result column="Sold_HouseTotalCount" property="soldHousetotalcount" jdbcType="INTEGER" />
+    <result column="Sold_HouseTotalArea" property="soldHousetotalarea" jdbcType="NUMERIC" />
+    <result column="Sold_BusinessTotalCount" property="soldBusinesstotalcount" jdbcType="INTEGER" />
+    <result column="Sold_BusinessTotalArea" property="soldBusinesstotalarea" jdbcType="NUMERIC" />
+    <result column="Sold_OfficeTotalCount" property="soldOfficetotalcount" jdbcType="INTEGER" />
+    <result column="Sold_OfficeTotalArea" property="soldOfficetotalarea" jdbcType="NUMERIC" />
+    <result column="Sold_OtherTotalCount" property="soldOthertotalcount" jdbcType="INTEGER" />
+    <result column="Sold_OtherTotalArea" property="soldOthertotalarea" jdbcType="NUMERIC" />
+    <result column="Project_Usage" property="projectUsage" jdbcType="VARCHAR" />
+    <result column="Seller_Phone" property="sellerPhone" jdbcType="VARCHAR" />
+    <result column="Project_MainRoomHx" property="projectMainroomhx" jdbcType="VARCHAR" />
+    <result column="Project_ReferPrice" property="projectReferprice" jdbcType="VARCHAR" />
+    <result column="Project_TeSe" property="projectTese" jdbcType="VARCHAR" />
+    <result column="Project_PropertyAge" property="projectPropertyage" jdbcType="VARCHAR" />
+    <result column="Project_GetRoomRate" property="projectGetroomrate" jdbcType="VARCHAR" />
+    <result column="Project_WuYeMoney" property="projectWuyemoney" jdbcType="VARCHAR" />
+    <result column="Project_Renovation" property="projectRenovation" jdbcType="VARCHAR" />
+    <result column="Project_GreenRate" property="projectGreenrate" jdbcType="VARCHAR" />
+    <result column="Seller_address" property="sellerAddress" jdbcType="VARCHAR" />
+    <result column="Project_rate" property="projectRate" jdbcType="VARCHAR" />
+    <result column="First_OpenDate" property="firstOpendate" jdbcType="TIMESTAMP" />
+    <result column="Last_OpenDate" property="lastOpendate" jdbcType="TIMESTAMP" />
+    <result column="Group_Name" property="groupName" jdbcType="VARCHAR" />
+    <result column="Online_HouseTotalCount" property="onlineHousetotalcount" jdbcType="INTEGER" />
+    <result column="Online_HouseTotalArea" property="onlineHousetotalarea" jdbcType="NUMERIC" />
+    <result column="RingRegion" property="ringregion" jdbcType="VARCHAR" />
+    <result column="lat" property="lat" jdbcType="DOUBLE" />
+    <result column="lng" property="lng" jdbcType="DOUBLE" />
+    <result column="PropertyManagementCompanies" property="propertymanagementcompanies" jdbcType="VARCHAR" />
+    <result column="Is_WebDisplay" property="isWebdisplay" jdbcType="INTEGER" />
+    <result column="Project_GDid" property="projectGdid" jdbcType="VARCHAR" />
+    <result column="IsOperate" property="isoperate" jdbcType="INTEGER" />
+    <result column="Land_id" property="landId" jdbcType="VARCHAR" />
+    <result column="ProjectRegion1" property="projectregion1" jdbcType="VARCHAR" />
+    <result column="ProjectRegiont" property="projectregiont" jdbcType="VARCHAR" />
+    <result column="Project_D_type" property="projectDType" jdbcType="VARCHAR" />
+    <result column="project_idOld" property="projectIdold" jdbcType="VARCHAR" />
+    <result column="Booked_TotalArea" property="bookedTotalarea" jdbcType="NUMERIC" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.ml.diamond.entity.Projects" extends="BaseResultMap" >
+    <result column="Project_Info" property="projectInfo" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Project_ID, Project_365Id, Prjid, Project_Name, Generalize_Name, Developer, DeveloperUrl, 
+    Open_date, Project_LandName, Agent, AgentUrl, Project_PlanningPermit, District, ProjectRegion_fc, 
+    ProjectRegion, TownRegion, Location, Online_TotalCount, Online_TotalArea, Available_TotalCount, 
+    Available_TotalArea, Available_CarPortCount, Booked_TotalCount, Sold_TotalCount, 
+    Sold_TotalArea, Sold_AvgPrice, Sold_HouseAvgPrice, Sold_OfficeAvgPrice, Sold_BusinessAvgPrice, 
+    Today_BookedCount, Today_SoldCount, Building_URL, InsertDate, IsUpdate, BookedToday, 
+    SoldToday, Month_HouseAvgPrice, Month_OfficeAvgPrice, Month_BusinessAvgPrice, Sold_HouseTotalCount, 
+    Sold_HouseTotalArea, Sold_BusinessTotalCount, Sold_BusinessTotalArea, Sold_OfficeTotalCount, 
+    Sold_OfficeTotalArea, Sold_OtherTotalCount, Sold_OtherTotalArea, Project_Usage, Seller_Phone, 
+    Project_MainRoomHx, Project_ReferPrice, Project_TeSe, Project_PropertyAge, Project_GetRoomRate, 
+    Project_WuYeMoney, Project_Renovation, Project_GreenRate, Seller_address, Project_rate, 
+    First_OpenDate, Last_OpenDate, Group_Name, Online_HouseTotalCount, Online_HouseTotalArea, 
+    RingRegion, lat, lng, PropertyManagementCompanies, Is_WebDisplay, Project_GDid, IsOperate, 
+    Land_id, ProjectRegion1, ProjectRegiont, Project_D_type, project_idOld, Booked_TotalArea
+  </sql>
+  <sql id="Blob_Column_List" >
+    Project_Info
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from Projects
+    where Project_ID = #{projectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from Projects
+    where Project_ID = #{projectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ml.diamond.entity.Projects" >
+    insert into Projects (Project_ID, Project_365Id, Prjid, 
+      Project_Name, Generalize_Name, Developer, 
+      DeveloperUrl, Open_date, Project_LandName, 
+      Agent, AgentUrl, Project_PlanningPermit, 
+      District, ProjectRegion_fc, ProjectRegion, 
+      TownRegion, Location, Online_TotalCount, 
+      Online_TotalArea, Available_TotalCount, Available_TotalArea, 
+      Available_CarPortCount, Booked_TotalCount, 
+      Sold_TotalCount, Sold_TotalArea, Sold_AvgPrice, 
+      Sold_HouseAvgPrice, Sold_OfficeAvgPrice, 
+      Sold_BusinessAvgPrice, Today_BookedCount, 
+      Today_SoldCount, Building_URL, InsertDate, 
+      IsUpdate, BookedToday, SoldToday, 
+      Month_HouseAvgPrice, Month_OfficeAvgPrice, 
+      Month_BusinessAvgPrice, Sold_HouseTotalCount, 
+      Sold_HouseTotalArea, Sold_BusinessTotalCount, 
+      Sold_BusinessTotalArea, Sold_OfficeTotalCount, 
+      Sold_OfficeTotalArea, Sold_OtherTotalCount, 
+      Sold_OtherTotalArea, Project_Usage, Seller_Phone, 
+      Project_MainRoomHx, Project_ReferPrice, Project_TeSe, 
+      Project_PropertyAge, Project_GetRoomRate, 
+      Project_WuYeMoney, Project_Renovation, Project_GreenRate, 
+      Seller_address, Project_rate, First_OpenDate, 
+      Last_OpenDate, Group_Name, Online_HouseTotalCount, 
+      Online_HouseTotalArea, RingRegion, lat, 
+      lng, PropertyManagementCompanies, Is_WebDisplay, 
+      Project_GDid, IsOperate, Land_id, 
+      ProjectRegion1, ProjectRegiont, Project_D_type, 
+      project_idOld, Booked_TotalArea, Project_Info
+      )
+    values (#{projectId,jdbcType=VARCHAR}, #{project365id,jdbcType=VARCHAR}, #{prjid,jdbcType=VARCHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{generalizeName,jdbcType=VARCHAR}, #{developer,jdbcType=VARCHAR}, 
+      #{developerurl,jdbcType=VARCHAR}, #{openDate,jdbcType=TIMESTAMP}, #{projectLandname,jdbcType=VARCHAR}, 
+      #{agent,jdbcType=VARCHAR}, #{agenturl,jdbcType=VARCHAR}, #{projectPlanningpermit,jdbcType=VARCHAR}, 
+      #{district,jdbcType=VARCHAR}, #{projectregionFc,jdbcType=VARCHAR}, #{projectregion,jdbcType=VARCHAR}, 
+      #{townregion,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, #{onlineTotalcount,jdbcType=INTEGER}, 
+      #{onlineTotalarea,jdbcType=NUMERIC}, #{availableTotalcount,jdbcType=INTEGER}, #{availableTotalarea,jdbcType=NUMERIC}, 
+      #{availableCarportcount,jdbcType=INTEGER}, #{bookedTotalcount,jdbcType=INTEGER}, 
+      #{soldTotalcount,jdbcType=INTEGER}, #{soldTotalarea,jdbcType=NUMERIC}, #{soldAvgprice,jdbcType=NUMERIC}, 
+      #{soldHouseavgprice,jdbcType=NUMERIC}, #{soldOfficeavgprice,jdbcType=NUMERIC}, 
+      #{soldBusinessavgprice,jdbcType=NUMERIC}, #{todayBookedcount,jdbcType=INTEGER}, 
+      #{todaySoldcount,jdbcType=INTEGER}, #{buildingUrl,jdbcType=VARCHAR}, #{insertdate,jdbcType=TIMESTAMP}, 
+      #{isupdate,jdbcType=INTEGER}, #{bookedtoday,jdbcType=INTEGER}, #{soldtoday,jdbcType=INTEGER}, 
+      #{monthHouseavgprice,jdbcType=NUMERIC}, #{monthOfficeavgprice,jdbcType=NUMERIC}, 
+      #{monthBusinessavgprice,jdbcType=NUMERIC}, #{soldHousetotalcount,jdbcType=INTEGER}, 
+      #{soldHousetotalarea,jdbcType=NUMERIC}, #{soldBusinesstotalcount,jdbcType=INTEGER}, 
+      #{soldBusinesstotalarea,jdbcType=NUMERIC}, #{soldOfficetotalcount,jdbcType=INTEGER}, 
+      #{soldOfficetotalarea,jdbcType=NUMERIC}, #{soldOthertotalcount,jdbcType=INTEGER}, 
+      #{soldOthertotalarea,jdbcType=NUMERIC}, #{projectUsage,jdbcType=VARCHAR}, #{sellerPhone,jdbcType=VARCHAR}, 
+      #{projectMainroomhx,jdbcType=VARCHAR}, #{projectReferprice,jdbcType=VARCHAR}, #{projectTese,jdbcType=VARCHAR}, 
+      #{projectPropertyage,jdbcType=VARCHAR}, #{projectGetroomrate,jdbcType=VARCHAR}, 
+      #{projectWuyemoney,jdbcType=VARCHAR}, #{projectRenovation,jdbcType=VARCHAR}, #{projectGreenrate,jdbcType=VARCHAR}, 
+      #{sellerAddress,jdbcType=VARCHAR}, #{projectRate,jdbcType=VARCHAR}, #{firstOpendate,jdbcType=TIMESTAMP}, 
+      #{lastOpendate,jdbcType=TIMESTAMP}, #{groupName,jdbcType=VARCHAR}, #{onlineHousetotalcount,jdbcType=INTEGER}, 
+      #{onlineHousetotalarea,jdbcType=NUMERIC}, #{ringregion,jdbcType=VARCHAR}, #{lat,jdbcType=DOUBLE}, 
+      #{lng,jdbcType=DOUBLE}, #{propertymanagementcompanies,jdbcType=VARCHAR}, #{isWebdisplay,jdbcType=INTEGER}, 
+      #{projectGdid,jdbcType=VARCHAR}, #{isoperate,jdbcType=INTEGER}, #{landId,jdbcType=VARCHAR}, 
+      #{projectregion1,jdbcType=VARCHAR}, #{projectregiont,jdbcType=VARCHAR}, #{projectDType,jdbcType=VARCHAR}, 
+      #{projectIdold,jdbcType=VARCHAR}, #{bookedTotalarea,jdbcType=NUMERIC}, #{projectInfo,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ml.diamond.entity.Projects" >
+    insert into Projects
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectId != null" >
+        Project_ID,
+      </if>
+      <if test="project365id != null" >
+        Project_365Id,
+      </if>
+      <if test="prjid != null" >
+        Prjid,
+      </if>
+      <if test="projectName != null" >
+        Project_Name,
+      </if>
+      <if test="generalizeName != null" >
+        Generalize_Name,
+      </if>
+      <if test="developer != null" >
+        Developer,
+      </if>
+      <if test="developerurl != null" >
+        DeveloperUrl,
+      </if>
+      <if test="openDate != null" >
+        Open_date,
+      </if>
+      <if test="projectLandname != null" >
+        Project_LandName,
+      </if>
+      <if test="agent != null" >
+        Agent,
+      </if>
+      <if test="agenturl != null" >
+        AgentUrl,
+      </if>
+      <if test="projectPlanningpermit != null" >
+        Project_PlanningPermit,
+      </if>
+      <if test="district != null" >
+        District,
+      </if>
+      <if test="projectregionFc != null" >
+        ProjectRegion_fc,
+      </if>
+      <if test="projectregion != null" >
+        ProjectRegion,
+      </if>
+      <if test="townregion != null" >
+        TownRegion,
+      </if>
+      <if test="location != null" >
+        Location,
+      </if>
+      <if test="onlineTotalcount != null" >
+        Online_TotalCount,
+      </if>
+      <if test="onlineTotalarea != null" >
+        Online_TotalArea,
+      </if>
+      <if test="availableTotalcount != null" >
+        Available_TotalCount,
+      </if>
+      <if test="availableTotalarea != null" >
+        Available_TotalArea,
+      </if>
+      <if test="availableCarportcount != null" >
+        Available_CarPortCount,
+      </if>
+      <if test="bookedTotalcount != null" >
+        Booked_TotalCount,
+      </if>
+      <if test="soldTotalcount != null" >
+        Sold_TotalCount,
+      </if>
+      <if test="soldTotalarea != null" >
+        Sold_TotalArea,
+      </if>
+      <if test="soldAvgprice != null" >
+        Sold_AvgPrice,
+      </if>
+      <if test="soldHouseavgprice != null" >
+        Sold_HouseAvgPrice,
+      </if>
+      <if test="soldOfficeavgprice != null" >
+        Sold_OfficeAvgPrice,
+      </if>
+      <if test="soldBusinessavgprice != null" >
+        Sold_BusinessAvgPrice,
+      </if>
+      <if test="todayBookedcount != null" >
+        Today_BookedCount,
+      </if>
+      <if test="todaySoldcount != null" >
+        Today_SoldCount,
+      </if>
+      <if test="buildingUrl != null" >
+        Building_URL,
+      </if>
+      <if test="insertdate != null" >
+        InsertDate,
+      </if>
+      <if test="isupdate != null" >
+        IsUpdate,
+      </if>
+      <if test="bookedtoday != null" >
+        BookedToday,
+      </if>
+      <if test="soldtoday != null" >
+        SoldToday,
+      </if>
+      <if test="monthHouseavgprice != null" >
+        Month_HouseAvgPrice,
+      </if>
+      <if test="monthOfficeavgprice != null" >
+        Month_OfficeAvgPrice,
+      </if>
+      <if test="monthBusinessavgprice != null" >
+        Month_BusinessAvgPrice,
+      </if>
+      <if test="soldHousetotalcount != null" >
+        Sold_HouseTotalCount,
+      </if>
+      <if test="soldHousetotalarea != null" >
+        Sold_HouseTotalArea,
+      </if>
+      <if test="soldBusinesstotalcount != null" >
+        Sold_BusinessTotalCount,
+      </if>
+      <if test="soldBusinesstotalarea != null" >
+        Sold_BusinessTotalArea,
+      </if>
+      <if test="soldOfficetotalcount != null" >
+        Sold_OfficeTotalCount,
+      </if>
+      <if test="soldOfficetotalarea != null" >
+        Sold_OfficeTotalArea,
+      </if>
+      <if test="soldOthertotalcount != null" >
+        Sold_OtherTotalCount,
+      </if>
+      <if test="soldOthertotalarea != null" >
+        Sold_OtherTotalArea,
+      </if>
+      <if test="projectUsage != null" >
+        Project_Usage,
+      </if>
+      <if test="sellerPhone != null" >
+        Seller_Phone,
+      </if>
+      <if test="projectMainroomhx != null" >
+        Project_MainRoomHx,
+      </if>
+      <if test="projectReferprice != null" >
+        Project_ReferPrice,
+      </if>
+      <if test="projectTese != null" >
+        Project_TeSe,
+      </if>
+      <if test="projectPropertyage != null" >
+        Project_PropertyAge,
+      </if>
+      <if test="projectGetroomrate != null" >
+        Project_GetRoomRate,
+      </if>
+      <if test="projectWuyemoney != null" >
+        Project_WuYeMoney,
+      </if>
+      <if test="projectRenovation != null" >
+        Project_Renovation,
+      </if>
+      <if test="projectGreenrate != null" >
+        Project_GreenRate,
+      </if>
+      <if test="sellerAddress != null" >
+        Seller_address,
+      </if>
+      <if test="projectRate != null" >
+        Project_rate,
+      </if>
+      <if test="firstOpendate != null" >
+        First_OpenDate,
+      </if>
+      <if test="lastOpendate != null" >
+        Last_OpenDate,
+      </if>
+      <if test="groupName != null" >
+        Group_Name,
+      </if>
+      <if test="onlineHousetotalcount != null" >
+        Online_HouseTotalCount,
+      </if>
+      <if test="onlineHousetotalarea != null" >
+        Online_HouseTotalArea,
+      </if>
+      <if test="ringregion != null" >
+        RingRegion,
+      </if>
+      <if test="lat != null" >
+        lat,
+      </if>
+      <if test="lng != null" >
+        lng,
+      </if>
+      <if test="propertymanagementcompanies != null" >
+        PropertyManagementCompanies,
+      </if>
+      <if test="isWebdisplay != null" >
+        Is_WebDisplay,
+      </if>
+      <if test="projectGdid != null" >
+        Project_GDid,
+      </if>
+      <if test="isoperate != null" >
+        IsOperate,
+      </if>
+      <if test="landId != null" >
+        Land_id,
+      </if>
+      <if test="projectregion1 != null" >
+        ProjectRegion1,
+      </if>
+      <if test="projectregiont != null" >
+        ProjectRegiont,
+      </if>
+      <if test="projectDType != null" >
+        Project_D_type,
+      </if>
+      <if test="projectIdold != null" >
+        project_idOld,
+      </if>
+      <if test="bookedTotalarea != null" >
+        Booked_TotalArea,
+      </if>
+      <if test="projectInfo != null" >
+        Project_Info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="project365id != null" >
+        #{project365id,jdbcType=VARCHAR},
+      </if>
+      <if test="prjid != null" >
+        #{prjid,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="generalizeName != null" >
+        #{generalizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="developer != null" >
+        #{developer,jdbcType=VARCHAR},
+      </if>
+      <if test="developerurl != null" >
+        #{developerurl,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null" >
+        #{openDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectLandname != null" >
+        #{projectLandname,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null" >
+        #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="agenturl != null" >
+        #{agenturl,jdbcType=VARCHAR},
+      </if>
+      <if test="projectPlanningpermit != null" >
+        #{projectPlanningpermit,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="projectregionFc != null" >
+        #{projectregionFc,jdbcType=VARCHAR},
+      </if>
+      <if test="projectregion != null" >
+        #{projectregion,jdbcType=VARCHAR},
+      </if>
+      <if test="townregion != null" >
+        #{townregion,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineTotalcount != null" >
+        #{onlineTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="onlineTotalarea != null" >
+        #{onlineTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="availableTotalcount != null" >
+        #{availableTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="availableTotalarea != null" >
+        #{availableTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="availableCarportcount != null" >
+        #{availableCarportcount,jdbcType=INTEGER},
+      </if>
+      <if test="bookedTotalcount != null" >
+        #{bookedTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldTotalcount != null" >
+        #{soldTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldTotalarea != null" >
+        #{soldTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldAvgprice != null" >
+        #{soldAvgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldHouseavgprice != null" >
+        #{soldHouseavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldOfficeavgprice != null" >
+        #{soldOfficeavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldBusinessavgprice != null" >
+        #{soldBusinessavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="todayBookedcount != null" >
+        #{todayBookedcount,jdbcType=INTEGER},
+      </if>
+      <if test="todaySoldcount != null" >
+        #{todaySoldcount,jdbcType=INTEGER},
+      </if>
+      <if test="buildingUrl != null" >
+        #{buildingUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="insertdate != null" >
+        #{insertdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isupdate != null" >
+        #{isupdate,jdbcType=INTEGER},
+      </if>
+      <if test="bookedtoday != null" >
+        #{bookedtoday,jdbcType=INTEGER},
+      </if>
+      <if test="soldtoday != null" >
+        #{soldtoday,jdbcType=INTEGER},
+      </if>
+      <if test="monthHouseavgprice != null" >
+        #{monthHouseavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="monthOfficeavgprice != null" >
+        #{monthOfficeavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="monthBusinessavgprice != null" >
+        #{monthBusinessavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldHousetotalcount != null" >
+        #{soldHousetotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldHousetotalarea != null" >
+        #{soldHousetotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldBusinesstotalcount != null" >
+        #{soldBusinesstotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldBusinesstotalarea != null" >
+        #{soldBusinesstotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldOfficetotalcount != null" >
+        #{soldOfficetotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldOfficetotalarea != null" >
+        #{soldOfficetotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldOthertotalcount != null" >
+        #{soldOthertotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldOthertotalarea != null" >
+        #{soldOthertotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="projectUsage != null" >
+        #{projectUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerPhone != null" >
+        #{sellerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="projectMainroomhx != null" >
+        #{projectMainroomhx,jdbcType=VARCHAR},
+      </if>
+      <if test="projectReferprice != null" >
+        #{projectReferprice,jdbcType=VARCHAR},
+      </if>
+      <if test="projectTese != null" >
+        #{projectTese,jdbcType=VARCHAR},
+      </if>
+      <if test="projectPropertyage != null" >
+        #{projectPropertyage,jdbcType=VARCHAR},
+      </if>
+      <if test="projectGetroomrate != null" >
+        #{projectGetroomrate,jdbcType=VARCHAR},
+      </if>
+      <if test="projectWuyemoney != null" >
+        #{projectWuyemoney,jdbcType=VARCHAR},
+      </if>
+      <if test="projectRenovation != null" >
+        #{projectRenovation,jdbcType=VARCHAR},
+      </if>
+      <if test="projectGreenrate != null" >
+        #{projectGreenrate,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAddress != null" >
+        #{sellerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="projectRate != null" >
+        #{projectRate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstOpendate != null" >
+        #{firstOpendate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOpendate != null" >
+        #{lastOpendate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineHousetotalcount != null" >
+        #{onlineHousetotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="onlineHousetotalarea != null" >
+        #{onlineHousetotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="ringregion != null" >
+        #{ringregion,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null" >
+        #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="lng != null" >
+        #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="propertymanagementcompanies != null" >
+        #{propertymanagementcompanies,jdbcType=VARCHAR},
+      </if>
+      <if test="isWebdisplay != null" >
+        #{isWebdisplay,jdbcType=INTEGER},
+      </if>
+      <if test="projectGdid != null" >
+        #{projectGdid,jdbcType=VARCHAR},
+      </if>
+      <if test="isoperate != null" >
+        #{isoperate,jdbcType=INTEGER},
+      </if>
+      <if test="landId != null" >
+        #{landId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectregion1 != null" >
+        #{projectregion1,jdbcType=VARCHAR},
+      </if>
+      <if test="projectregiont != null" >
+        #{projectregiont,jdbcType=VARCHAR},
+      </if>
+      <if test="projectDType != null" >
+        #{projectDType,jdbcType=VARCHAR},
+      </if>
+      <if test="projectIdold != null" >
+        #{projectIdold,jdbcType=VARCHAR},
+      </if>
+      <if test="bookedTotalarea != null" >
+        #{bookedTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="projectInfo != null" >
+        #{projectInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ml.diamond.entity.Projects" >
+    update Projects
+    <set >
+      <if test="project365id != null" >
+        Project_365Id = #{project365id,jdbcType=VARCHAR},
+      </if>
+      <if test="prjid != null" >
+        Prjid = #{prjid,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        Project_Name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="generalizeName != null" >
+        Generalize_Name = #{generalizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="developer != null" >
+        Developer = #{developer,jdbcType=VARCHAR},
+      </if>
+      <if test="developerurl != null" >
+        DeveloperUrl = #{developerurl,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null" >
+        Open_date = #{openDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectLandname != null" >
+        Project_LandName = #{projectLandname,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null" >
+        Agent = #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="agenturl != null" >
+        AgentUrl = #{agenturl,jdbcType=VARCHAR},
+      </if>
+      <if test="projectPlanningpermit != null" >
+        Project_PlanningPermit = #{projectPlanningpermit,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        District = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="projectregionFc != null" >
+        ProjectRegion_fc = #{projectregionFc,jdbcType=VARCHAR},
+      </if>
+      <if test="projectregion != null" >
+        ProjectRegion = #{projectregion,jdbcType=VARCHAR},
+      </if>
+      <if test="townregion != null" >
+        TownRegion = #{townregion,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        Location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineTotalcount != null" >
+        Online_TotalCount = #{onlineTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="onlineTotalarea != null" >
+        Online_TotalArea = #{onlineTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="availableTotalcount != null" >
+        Available_TotalCount = #{availableTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="availableTotalarea != null" >
+        Available_TotalArea = #{availableTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="availableCarportcount != null" >
+        Available_CarPortCount = #{availableCarportcount,jdbcType=INTEGER},
+      </if>
+      <if test="bookedTotalcount != null" >
+        Booked_TotalCount = #{bookedTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldTotalcount != null" >
+        Sold_TotalCount = #{soldTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldTotalarea != null" >
+        Sold_TotalArea = #{soldTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldAvgprice != null" >
+        Sold_AvgPrice = #{soldAvgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldHouseavgprice != null" >
+        Sold_HouseAvgPrice = #{soldHouseavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldOfficeavgprice != null" >
+        Sold_OfficeAvgPrice = #{soldOfficeavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldBusinessavgprice != null" >
+        Sold_BusinessAvgPrice = #{soldBusinessavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="todayBookedcount != null" >
+        Today_BookedCount = #{todayBookedcount,jdbcType=INTEGER},
+      </if>
+      <if test="todaySoldcount != null" >
+        Today_SoldCount = #{todaySoldcount,jdbcType=INTEGER},
+      </if>
+      <if test="buildingUrl != null" >
+        Building_URL = #{buildingUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="insertdate != null" >
+        InsertDate = #{insertdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isupdate != null" >
+        IsUpdate = #{isupdate,jdbcType=INTEGER},
+      </if>
+      <if test="bookedtoday != null" >
+        BookedToday = #{bookedtoday,jdbcType=INTEGER},
+      </if>
+      <if test="soldtoday != null" >
+        SoldToday = #{soldtoday,jdbcType=INTEGER},
+      </if>
+      <if test="monthHouseavgprice != null" >
+        Month_HouseAvgPrice = #{monthHouseavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="monthOfficeavgprice != null" >
+        Month_OfficeAvgPrice = #{monthOfficeavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="monthBusinessavgprice != null" >
+        Month_BusinessAvgPrice = #{monthBusinessavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldHousetotalcount != null" >
+        Sold_HouseTotalCount = #{soldHousetotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldHousetotalarea != null" >
+        Sold_HouseTotalArea = #{soldHousetotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldBusinesstotalcount != null" >
+        Sold_BusinessTotalCount = #{soldBusinesstotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldBusinesstotalarea != null" >
+        Sold_BusinessTotalArea = #{soldBusinesstotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldOfficetotalcount != null" >
+        Sold_OfficeTotalCount = #{soldOfficetotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldOfficetotalarea != null" >
+        Sold_OfficeTotalArea = #{soldOfficetotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldOthertotalcount != null" >
+        Sold_OtherTotalCount = #{soldOthertotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldOthertotalarea != null" >
+        Sold_OtherTotalArea = #{soldOthertotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="projectUsage != null" >
+        Project_Usage = #{projectUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerPhone != null" >
+        Seller_Phone = #{sellerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="projectMainroomhx != null" >
+        Project_MainRoomHx = #{projectMainroomhx,jdbcType=VARCHAR},
+      </if>
+      <if test="projectReferprice != null" >
+        Project_ReferPrice = #{projectReferprice,jdbcType=VARCHAR},
+      </if>
+      <if test="projectTese != null" >
+        Project_TeSe = #{projectTese,jdbcType=VARCHAR},
+      </if>
+      <if test="projectPropertyage != null" >
+        Project_PropertyAge = #{projectPropertyage,jdbcType=VARCHAR},
+      </if>
+      <if test="projectGetroomrate != null" >
+        Project_GetRoomRate = #{projectGetroomrate,jdbcType=VARCHAR},
+      </if>
+      <if test="projectWuyemoney != null" >
+        Project_WuYeMoney = #{projectWuyemoney,jdbcType=VARCHAR},
+      </if>
+      <if test="projectRenovation != null" >
+        Project_Renovation = #{projectRenovation,jdbcType=VARCHAR},
+      </if>
+      <if test="projectGreenrate != null" >
+        Project_GreenRate = #{projectGreenrate,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAddress != null" >
+        Seller_address = #{sellerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="projectRate != null" >
+        Project_rate = #{projectRate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstOpendate != null" >
+        First_OpenDate = #{firstOpendate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOpendate != null" >
+        Last_OpenDate = #{lastOpendate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupName != null" >
+        Group_Name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineHousetotalcount != null" >
+        Online_HouseTotalCount = #{onlineHousetotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="onlineHousetotalarea != null" >
+        Online_HouseTotalArea = #{onlineHousetotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="ringregion != null" >
+        RingRegion = #{ringregion,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null" >
+        lat = #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="lng != null" >
+        lng = #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="propertymanagementcompanies != null" >
+        PropertyManagementCompanies = #{propertymanagementcompanies,jdbcType=VARCHAR},
+      </if>
+      <if test="isWebdisplay != null" >
+        Is_WebDisplay = #{isWebdisplay,jdbcType=INTEGER},
+      </if>
+      <if test="projectGdid != null" >
+        Project_GDid = #{projectGdid,jdbcType=VARCHAR},
+      </if>
+      <if test="isoperate != null" >
+        IsOperate = #{isoperate,jdbcType=INTEGER},
+      </if>
+      <if test="landId != null" >
+        Land_id = #{landId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectregion1 != null" >
+        ProjectRegion1 = #{projectregion1,jdbcType=VARCHAR},
+      </if>
+      <if test="projectregiont != null" >
+        ProjectRegiont = #{projectregiont,jdbcType=VARCHAR},
+      </if>
+      <if test="projectDType != null" >
+        Project_D_type = #{projectDType,jdbcType=VARCHAR},
+      </if>
+      <if test="projectIdold != null" >
+        project_idOld = #{projectIdold,jdbcType=VARCHAR},
+      </if>
+      <if test="bookedTotalarea != null" >
+        Booked_TotalArea = #{bookedTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="projectInfo != null" >
+        Project_Info = #{projectInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Project_ID = #{projectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ml.diamond.entity.Projects" >
+    update Projects
+    set Project_365Id = #{project365id,jdbcType=VARCHAR},
+      Prjid = #{prjid,jdbcType=VARCHAR},
+      Project_Name = #{projectName,jdbcType=VARCHAR},
+      Generalize_Name = #{generalizeName,jdbcType=VARCHAR},
+      Developer = #{developer,jdbcType=VARCHAR},
+      DeveloperUrl = #{developerurl,jdbcType=VARCHAR},
+      Open_date = #{openDate,jdbcType=TIMESTAMP},
+      Project_LandName = #{projectLandname,jdbcType=VARCHAR},
+      Agent = #{agent,jdbcType=VARCHAR},
+      AgentUrl = #{agenturl,jdbcType=VARCHAR},
+      Project_PlanningPermit = #{projectPlanningpermit,jdbcType=VARCHAR},
+      District = #{district,jdbcType=VARCHAR},
+      ProjectRegion_fc = #{projectregionFc,jdbcType=VARCHAR},
+      ProjectRegion = #{projectregion,jdbcType=VARCHAR},
+      TownRegion = #{townregion,jdbcType=VARCHAR},
+      Location = #{location,jdbcType=VARCHAR},
+      Online_TotalCount = #{onlineTotalcount,jdbcType=INTEGER},
+      Online_TotalArea = #{onlineTotalarea,jdbcType=NUMERIC},
+      Available_TotalCount = #{availableTotalcount,jdbcType=INTEGER},
+      Available_TotalArea = #{availableTotalarea,jdbcType=NUMERIC},
+      Available_CarPortCount = #{availableCarportcount,jdbcType=INTEGER},
+      Booked_TotalCount = #{bookedTotalcount,jdbcType=INTEGER},
+      Sold_TotalCount = #{soldTotalcount,jdbcType=INTEGER},
+      Sold_TotalArea = #{soldTotalarea,jdbcType=NUMERIC},
+      Sold_AvgPrice = #{soldAvgprice,jdbcType=NUMERIC},
+      Sold_HouseAvgPrice = #{soldHouseavgprice,jdbcType=NUMERIC},
+      Sold_OfficeAvgPrice = #{soldOfficeavgprice,jdbcType=NUMERIC},
+      Sold_BusinessAvgPrice = #{soldBusinessavgprice,jdbcType=NUMERIC},
+      Today_BookedCount = #{todayBookedcount,jdbcType=INTEGER},
+      Today_SoldCount = #{todaySoldcount,jdbcType=INTEGER},
+      Building_URL = #{buildingUrl,jdbcType=VARCHAR},
+      InsertDate = #{insertdate,jdbcType=TIMESTAMP},
+      IsUpdate = #{isupdate,jdbcType=INTEGER},
+      BookedToday = #{bookedtoday,jdbcType=INTEGER},
+      SoldToday = #{soldtoday,jdbcType=INTEGER},
+      Month_HouseAvgPrice = #{monthHouseavgprice,jdbcType=NUMERIC},
+      Month_OfficeAvgPrice = #{monthOfficeavgprice,jdbcType=NUMERIC},
+      Month_BusinessAvgPrice = #{monthBusinessavgprice,jdbcType=NUMERIC},
+      Sold_HouseTotalCount = #{soldHousetotalcount,jdbcType=INTEGER},
+      Sold_HouseTotalArea = #{soldHousetotalarea,jdbcType=NUMERIC},
+      Sold_BusinessTotalCount = #{soldBusinesstotalcount,jdbcType=INTEGER},
+      Sold_BusinessTotalArea = #{soldBusinesstotalarea,jdbcType=NUMERIC},
+      Sold_OfficeTotalCount = #{soldOfficetotalcount,jdbcType=INTEGER},
+      Sold_OfficeTotalArea = #{soldOfficetotalarea,jdbcType=NUMERIC},
+      Sold_OtherTotalCount = #{soldOthertotalcount,jdbcType=INTEGER},
+      Sold_OtherTotalArea = #{soldOthertotalarea,jdbcType=NUMERIC},
+      Project_Usage = #{projectUsage,jdbcType=VARCHAR},
+      Seller_Phone = #{sellerPhone,jdbcType=VARCHAR},
+      Project_MainRoomHx = #{projectMainroomhx,jdbcType=VARCHAR},
+      Project_ReferPrice = #{projectReferprice,jdbcType=VARCHAR},
+      Project_TeSe = #{projectTese,jdbcType=VARCHAR},
+      Project_PropertyAge = #{projectPropertyage,jdbcType=VARCHAR},
+      Project_GetRoomRate = #{projectGetroomrate,jdbcType=VARCHAR},
+      Project_WuYeMoney = #{projectWuyemoney,jdbcType=VARCHAR},
+      Project_Renovation = #{projectRenovation,jdbcType=VARCHAR},
+      Project_GreenRate = #{projectGreenrate,jdbcType=VARCHAR},
+      Seller_address = #{sellerAddress,jdbcType=VARCHAR},
+      Project_rate = #{projectRate,jdbcType=VARCHAR},
+      First_OpenDate = #{firstOpendate,jdbcType=TIMESTAMP},
+      Last_OpenDate = #{lastOpendate,jdbcType=TIMESTAMP},
+      Group_Name = #{groupName,jdbcType=VARCHAR},
+      Online_HouseTotalCount = #{onlineHousetotalcount,jdbcType=INTEGER},
+      Online_HouseTotalArea = #{onlineHousetotalarea,jdbcType=NUMERIC},
+      RingRegion = #{ringregion,jdbcType=VARCHAR},
+      lat = #{lat,jdbcType=DOUBLE},
+      lng = #{lng,jdbcType=DOUBLE},
+      PropertyManagementCompanies = #{propertymanagementcompanies,jdbcType=VARCHAR},
+      Is_WebDisplay = #{isWebdisplay,jdbcType=INTEGER},
+      Project_GDid = #{projectGdid,jdbcType=VARCHAR},
+      IsOperate = #{isoperate,jdbcType=INTEGER},
+      Land_id = #{landId,jdbcType=VARCHAR},
+      ProjectRegion1 = #{projectregion1,jdbcType=VARCHAR},
+      ProjectRegiont = #{projectregiont,jdbcType=VARCHAR},
+      Project_D_type = #{projectDType,jdbcType=VARCHAR},
+      project_idOld = #{projectIdold,jdbcType=VARCHAR},
+      Booked_TotalArea = #{bookedTotalarea,jdbcType=NUMERIC},
+      Project_Info = #{projectInfo,jdbcType=LONGVARCHAR}
+    where Project_ID = #{projectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ml.diamond.entity.Projects" >
+    update Projects
+    set Project_365Id = #{project365id,jdbcType=VARCHAR},
+      Prjid = #{prjid,jdbcType=VARCHAR},
+      Project_Name = #{projectName,jdbcType=VARCHAR},
+      Generalize_Name = #{generalizeName,jdbcType=VARCHAR},
+      Developer = #{developer,jdbcType=VARCHAR},
+      DeveloperUrl = #{developerurl,jdbcType=VARCHAR},
+      Open_date = #{openDate,jdbcType=TIMESTAMP},
+      Project_LandName = #{projectLandname,jdbcType=VARCHAR},
+      Agent = #{agent,jdbcType=VARCHAR},
+      AgentUrl = #{agenturl,jdbcType=VARCHAR},
+      Project_PlanningPermit = #{projectPlanningpermit,jdbcType=VARCHAR},
+      District = #{district,jdbcType=VARCHAR},
+      ProjectRegion_fc = #{projectregionFc,jdbcType=VARCHAR},
+      ProjectRegion = #{projectregion,jdbcType=VARCHAR},
+      TownRegion = #{townregion,jdbcType=VARCHAR},
+      Location = #{location,jdbcType=VARCHAR},
+      Online_TotalCount = #{onlineTotalcount,jdbcType=INTEGER},
+      Online_TotalArea = #{onlineTotalarea,jdbcType=NUMERIC},
+      Available_TotalCount = #{availableTotalcount,jdbcType=INTEGER},
+      Available_TotalArea = #{availableTotalarea,jdbcType=NUMERIC},
+      Available_CarPortCount = #{availableCarportcount,jdbcType=INTEGER},
+      Booked_TotalCount = #{bookedTotalcount,jdbcType=INTEGER},
+      Sold_TotalCount = #{soldTotalcount,jdbcType=INTEGER},
+      Sold_TotalArea = #{soldTotalarea,jdbcType=NUMERIC},
+      Sold_AvgPrice = #{soldAvgprice,jdbcType=NUMERIC},
+      Sold_HouseAvgPrice = #{soldHouseavgprice,jdbcType=NUMERIC},
+      Sold_OfficeAvgPrice = #{soldOfficeavgprice,jdbcType=NUMERIC},
+      Sold_BusinessAvgPrice = #{soldBusinessavgprice,jdbcType=NUMERIC},
+      Today_BookedCount = #{todayBookedcount,jdbcType=INTEGER},
+      Today_SoldCount = #{todaySoldcount,jdbcType=INTEGER},
+      Building_URL = #{buildingUrl,jdbcType=VARCHAR},
+      InsertDate = #{insertdate,jdbcType=TIMESTAMP},
+      IsUpdate = #{isupdate,jdbcType=INTEGER},
+      BookedToday = #{bookedtoday,jdbcType=INTEGER},
+      SoldToday = #{soldtoday,jdbcType=INTEGER},
+      Month_HouseAvgPrice = #{monthHouseavgprice,jdbcType=NUMERIC},
+      Month_OfficeAvgPrice = #{monthOfficeavgprice,jdbcType=NUMERIC},
+      Month_BusinessAvgPrice = #{monthBusinessavgprice,jdbcType=NUMERIC},
+      Sold_HouseTotalCount = #{soldHousetotalcount,jdbcType=INTEGER},
+      Sold_HouseTotalArea = #{soldHousetotalarea,jdbcType=NUMERIC},
+      Sold_BusinessTotalCount = #{soldBusinesstotalcount,jdbcType=INTEGER},
+      Sold_BusinessTotalArea = #{soldBusinesstotalarea,jdbcType=NUMERIC},
+      Sold_OfficeTotalCount = #{soldOfficetotalcount,jdbcType=INTEGER},
+      Sold_OfficeTotalArea = #{soldOfficetotalarea,jdbcType=NUMERIC},
+      Sold_OtherTotalCount = #{soldOthertotalcount,jdbcType=INTEGER},
+      Sold_OtherTotalArea = #{soldOthertotalarea,jdbcType=NUMERIC},
+      Project_Usage = #{projectUsage,jdbcType=VARCHAR},
+      Seller_Phone = #{sellerPhone,jdbcType=VARCHAR},
+      Project_MainRoomHx = #{projectMainroomhx,jdbcType=VARCHAR},
+      Project_ReferPrice = #{projectReferprice,jdbcType=VARCHAR},
+      Project_TeSe = #{projectTese,jdbcType=VARCHAR},
+      Project_PropertyAge = #{projectPropertyage,jdbcType=VARCHAR},
+      Project_GetRoomRate = #{projectGetroomrate,jdbcType=VARCHAR},
+      Project_WuYeMoney = #{projectWuyemoney,jdbcType=VARCHAR},
+      Project_Renovation = #{projectRenovation,jdbcType=VARCHAR},
+      Project_GreenRate = #{projectGreenrate,jdbcType=VARCHAR},
+      Seller_address = #{sellerAddress,jdbcType=VARCHAR},
+      Project_rate = #{projectRate,jdbcType=VARCHAR},
+      First_OpenDate = #{firstOpendate,jdbcType=TIMESTAMP},
+      Last_OpenDate = #{lastOpendate,jdbcType=TIMESTAMP},
+      Group_Name = #{groupName,jdbcType=VARCHAR},
+      Online_HouseTotalCount = #{onlineHousetotalcount,jdbcType=INTEGER},
+      Online_HouseTotalArea = #{onlineHousetotalarea,jdbcType=NUMERIC},
+      RingRegion = #{ringregion,jdbcType=VARCHAR},
+      lat = #{lat,jdbcType=DOUBLE},
+      lng = #{lng,jdbcType=DOUBLE},
+      PropertyManagementCompanies = #{propertymanagementcompanies,jdbcType=VARCHAR},
+      Is_WebDisplay = #{isWebdisplay,jdbcType=INTEGER},
+      Project_GDid = #{projectGdid,jdbcType=VARCHAR},
+      IsOperate = #{isoperate,jdbcType=INTEGER},
+      Land_id = #{landId,jdbcType=VARCHAR},
+      ProjectRegion1 = #{projectregion1,jdbcType=VARCHAR},
+      ProjectRegiont = #{projectregiont,jdbcType=VARCHAR},
+      Project_D_type = #{projectDType,jdbcType=VARCHAR},
+      project_idOld = #{projectIdold,jdbcType=VARCHAR},
+      Booked_TotalArea = #{bookedTotalarea,jdbcType=NUMERIC}
+    where Project_ID = #{projectId,jdbcType=VARCHAR}
+  </update>
+</mapper>

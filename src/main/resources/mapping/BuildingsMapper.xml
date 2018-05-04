@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ml.diamond.mapper.BuildingsMapper" >
+  <resultMap id="BaseResultMap" type="com.ml.diamond.entity.Buildings" >
+    <id column="Building_ID" property="buildingId" jdbcType="VARCHAR" />
+    <id column="Project_ID" property="projectId" jdbcType="VARCHAR" />
+    <result column="Building_Name" property="buildingName" jdbcType="VARCHAR" />
+    <result column="Project_Name" property="projectName" jdbcType="VARCHAR" />
+    <result column="Group_Name" property="groupName" jdbcType="VARCHAR" />
+    <result column="Open_Date" property="openDate" jdbcType="TIMESTAMP" />
+    <result column="Online_TotalCount" property="onlineTotalcount" jdbcType="INTEGER" />
+    <result column="Online_TotalArea" property="onlineTotalarea" jdbcType="NUMERIC" />
+    <result column="Available_TotalCountWeb" property="availableTotalcountweb" jdbcType="INTEGER" />
+    <result column="Available_TotalCount" property="availableTotalcount" jdbcType="INTEGER" />
+    <result column="Available_TotalArea" property="availableTotalarea" jdbcType="NUMERIC" />
+    <result column="Booked_TotalCount" property="bookedTotalcount" jdbcType="INTEGER" />
+    <result column="Sold_TotalCount" property="soldTotalcount" jdbcType="INTEGER" />
+    <result column="Sold_TotalArea" property="soldTotalarea" jdbcType="NUMERIC" />
+    <result column="Sold_AvgPrice" property="soldAvgprice" jdbcType="NUMERIC" />
+    <result column="Room_URL" property="roomUrl" jdbcType="VARCHAR" />
+    <result column="InsertDate" property="insertdate" jdbcType="TIMESTAMP" />
+    <result column="Today_BookedCount" property="todayBookedcount" jdbcType="INTEGER" />
+    <result column="Today_SoldCount" property="todaySoldcount" jdbcType="INTEGER" />
+    <result column="IsUpdate" property="isupdate" jdbcType="INTEGER" />
+    <result column="Room_TopFloor" property="roomTopfloor" jdbcType="INTEGER" />
+    <result column="BuildingType" property="buildingtype" jdbcType="VARCHAR" />
+    <result column="Presell_id" property="presellId" jdbcType="VARCHAR" />
+    <result column="Presell_Name" property="presellName" jdbcType="VARCHAR" />
+    <result column="Building_idt" property="buildingIdt" jdbcType="VARCHAR" />
+    <result column="Building_TypeD" property="buildingTyped" jdbcType="VARCHAR" />
+    <result column="Sold_HouseAvgPrice" property="soldHouseavgprice" jdbcType="NUMERIC" />
+    <result column="Sold_BusinessAvgPrice" property="soldBusinessavgprice" jdbcType="NUMERIC" />
+    <result column="Sold_HouseTotalArea" property="soldHousetotalarea" jdbcType="NUMERIC" />
+    <result column="Sold_BusinessTotalArea" property="soldBusinesstotalarea" jdbcType="NUMERIC" />
+    <result column="UpdateDate" property="updatedate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Building_ID, Project_ID, Building_Name, Project_Name, Group_Name, Open_Date, Online_TotalCount, 
+    Online_TotalArea, Available_TotalCountWeb, Available_TotalCount, Available_TotalArea, 
+    Booked_TotalCount, Sold_TotalCount, Sold_TotalArea, Sold_AvgPrice, Room_URL, InsertDate, 
+    Today_BookedCount, Today_SoldCount, IsUpdate, Room_TopFloor, BuildingType, Presell_id, 
+    Presell_Name, Building_idt, Building_TypeD, Sold_HouseAvgPrice, Sold_BusinessAvgPrice, 
+    Sold_HouseTotalArea, Sold_BusinessTotalArea, UpdateDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.ml.diamond.entity.Buildings" >
+    select 
+    <include refid="Base_Column_List" />
+    from Buildings
+    where Building_ID = #{buildingId,jdbcType=VARCHAR}
+      and Project_ID = #{projectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.ml.diamond.entity.Buildings" >
+    delete from Buildings
+    where Building_ID = #{buildingId,jdbcType=VARCHAR}
+      and Project_ID = #{projectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ml.diamond.entity.Buildings" >
+    insert into Buildings (Building_ID, Project_ID, Building_Name, 
+      Project_Name, Group_Name, Open_Date, 
+      Online_TotalCount, Online_TotalArea, Available_TotalCountWeb, 
+      Available_TotalCount, Available_TotalArea, 
+      Booked_TotalCount, Sold_TotalCount, Sold_TotalArea, 
+      Sold_AvgPrice, Room_URL, InsertDate, 
+      Today_BookedCount, Today_SoldCount, IsUpdate, 
+      Room_TopFloor, BuildingType, Presell_id, 
+      Presell_Name, Building_idt, Building_TypeD, 
+      Sold_HouseAvgPrice, Sold_BusinessAvgPrice, 
+      Sold_HouseTotalArea, Sold_BusinessTotalArea, 
+      UpdateDate)
+    values (#{buildingId,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{buildingName,jdbcType=VARCHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{groupName,jdbcType=VARCHAR}, #{openDate,jdbcType=TIMESTAMP}, 
+      #{onlineTotalcount,jdbcType=INTEGER}, #{onlineTotalarea,jdbcType=NUMERIC}, #{availableTotalcountweb,jdbcType=INTEGER}, 
+      #{availableTotalcount,jdbcType=INTEGER}, #{availableTotalarea,jdbcType=NUMERIC}, 
+      #{bookedTotalcount,jdbcType=INTEGER}, #{soldTotalcount,jdbcType=INTEGER}, #{soldTotalarea,jdbcType=NUMERIC}, 
+      #{soldAvgprice,jdbcType=NUMERIC}, #{roomUrl,jdbcType=VARCHAR}, #{insertdate,jdbcType=TIMESTAMP}, 
+      #{todayBookedcount,jdbcType=INTEGER}, #{todaySoldcount,jdbcType=INTEGER}, #{isupdate,jdbcType=INTEGER}, 
+      #{roomTopfloor,jdbcType=INTEGER}, #{buildingtype,jdbcType=VARCHAR}, #{presellId,jdbcType=VARCHAR}, 
+      #{presellName,jdbcType=VARCHAR}, #{buildingIdt,jdbcType=VARCHAR}, #{buildingTyped,jdbcType=VARCHAR}, 
+      #{soldHouseavgprice,jdbcType=NUMERIC}, #{soldBusinessavgprice,jdbcType=NUMERIC}, 
+      #{soldHousetotalarea,jdbcType=NUMERIC}, #{soldBusinesstotalarea,jdbcType=NUMERIC}, 
+      #{updatedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ml.diamond.entity.Buildings" >
+    insert into Buildings
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="buildingId != null" >
+        Building_ID,
+      </if>
+      <if test="projectId != null" >
+        Project_ID,
+      </if>
+      <if test="buildingName != null" >
+        Building_Name,
+      </if>
+      <if test="projectName != null" >
+        Project_Name,
+      </if>
+      <if test="groupName != null" >
+        Group_Name,
+      </if>
+      <if test="openDate != null" >
+        Open_Date,
+      </if>
+      <if test="onlineTotalcount != null" >
+        Online_TotalCount,
+      </if>
+      <if test="onlineTotalarea != null" >
+        Online_TotalArea,
+      </if>
+      <if test="availableTotalcountweb != null" >
+        Available_TotalCountWeb,
+      </if>
+      <if test="availableTotalcount != null" >
+        Available_TotalCount,
+      </if>
+      <if test="availableTotalarea != null" >
+        Available_TotalArea,
+      </if>
+      <if test="bookedTotalcount != null" >
+        Booked_TotalCount,
+      </if>
+      <if test="soldTotalcount != null" >
+        Sold_TotalCount,
+      </if>
+      <if test="soldTotalarea != null" >
+        Sold_TotalArea,
+      </if>
+      <if test="soldAvgprice != null" >
+        Sold_AvgPrice,
+      </if>
+      <if test="roomUrl != null" >
+        Room_URL,
+      </if>
+      <if test="insertdate != null" >
+        InsertDate,
+      </if>
+      <if test="todayBookedcount != null" >
+        Today_BookedCount,
+      </if>
+      <if test="todaySoldcount != null" >
+        Today_SoldCount,
+      </if>
+      <if test="isupdate != null" >
+        IsUpdate,
+      </if>
+      <if test="roomTopfloor != null" >
+        Room_TopFloor,
+      </if>
+      <if test="buildingtype != null" >
+        BuildingType,
+      </if>
+      <if test="presellId != null" >
+        Presell_id,
+      </if>
+      <if test="presellName != null" >
+        Presell_Name,
+      </if>
+      <if test="buildingIdt != null" >
+        Building_idt,
+      </if>
+      <if test="buildingTyped != null" >
+        Building_TypeD,
+      </if>
+      <if test="soldHouseavgprice != null" >
+        Sold_HouseAvgPrice,
+      </if>
+      <if test="soldBusinessavgprice != null" >
+        Sold_BusinessAvgPrice,
+      </if>
+      <if test="soldHousetotalarea != null" >
+        Sold_HouseTotalArea,
+      </if>
+      <if test="soldBusinesstotalarea != null" >
+        Sold_BusinessTotalArea,
+      </if>
+      <if test="updatedate != null" >
+        UpdateDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="buildingId != null" >
+        #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingName != null" >
+        #{buildingName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null" >
+        #{openDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="onlineTotalcount != null" >
+        #{onlineTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="onlineTotalarea != null" >
+        #{onlineTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="availableTotalcountweb != null" >
+        #{availableTotalcountweb,jdbcType=INTEGER},
+      </if>
+      <if test="availableTotalcount != null" >
+        #{availableTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="availableTotalarea != null" >
+        #{availableTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="bookedTotalcount != null" >
+        #{bookedTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldTotalcount != null" >
+        #{soldTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldTotalarea != null" >
+        #{soldTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldAvgprice != null" >
+        #{soldAvgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="roomUrl != null" >
+        #{roomUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="insertdate != null" >
+        #{insertdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="todayBookedcount != null" >
+        #{todayBookedcount,jdbcType=INTEGER},
+      </if>
+      <if test="todaySoldcount != null" >
+        #{todaySoldcount,jdbcType=INTEGER},
+      </if>
+      <if test="isupdate != null" >
+        #{isupdate,jdbcType=INTEGER},
+      </if>
+      <if test="roomTopfloor != null" >
+        #{roomTopfloor,jdbcType=INTEGER},
+      </if>
+      <if test="buildingtype != null" >
+        #{buildingtype,jdbcType=VARCHAR},
+      </if>
+      <if test="presellId != null" >
+        #{presellId,jdbcType=VARCHAR},
+      </if>
+      <if test="presellName != null" >
+        #{presellName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingIdt != null" >
+        #{buildingIdt,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingTyped != null" >
+        #{buildingTyped,jdbcType=VARCHAR},
+      </if>
+      <if test="soldHouseavgprice != null" >
+        #{soldHouseavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldBusinessavgprice != null" >
+        #{soldBusinessavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldHousetotalarea != null" >
+        #{soldHousetotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldBusinesstotalarea != null" >
+        #{soldBusinesstotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ml.diamond.entity.Buildings" >
+    update Buildings
+    <set >
+      <if test="buildingName != null" >
+        Building_Name = #{buildingName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        Project_Name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        Group_Name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null" >
+        Open_Date = #{openDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="onlineTotalcount != null" >
+        Online_TotalCount = #{onlineTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="onlineTotalarea != null" >
+        Online_TotalArea = #{onlineTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="availableTotalcountweb != null" >
+        Available_TotalCountWeb = #{availableTotalcountweb,jdbcType=INTEGER},
+      </if>
+      <if test="availableTotalcount != null" >
+        Available_TotalCount = #{availableTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="availableTotalarea != null" >
+        Available_TotalArea = #{availableTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="bookedTotalcount != null" >
+        Booked_TotalCount = #{bookedTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldTotalcount != null" >
+        Sold_TotalCount = #{soldTotalcount,jdbcType=INTEGER},
+      </if>
+      <if test="soldTotalarea != null" >
+        Sold_TotalArea = #{soldTotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldAvgprice != null" >
+        Sold_AvgPrice = #{soldAvgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="roomUrl != null" >
+        Room_URL = #{roomUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="insertdate != null" >
+        InsertDate = #{insertdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="todayBookedcount != null" >
+        Today_BookedCount = #{todayBookedcount,jdbcType=INTEGER},
+      </if>
+      <if test="todaySoldcount != null" >
+        Today_SoldCount = #{todaySoldcount,jdbcType=INTEGER},
+      </if>
+      <if test="isupdate != null" >
+        IsUpdate = #{isupdate,jdbcType=INTEGER},
+      </if>
+      <if test="roomTopfloor != null" >
+        Room_TopFloor = #{roomTopfloor,jdbcType=INTEGER},
+      </if>
+      <if test="buildingtype != null" >
+        BuildingType = #{buildingtype,jdbcType=VARCHAR},
+      </if>
+      <if test="presellId != null" >
+        Presell_id = #{presellId,jdbcType=VARCHAR},
+      </if>
+      <if test="presellName != null" >
+        Presell_Name = #{presellName,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingIdt != null" >
+        Building_idt = #{buildingIdt,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingTyped != null" >
+        Building_TypeD = #{buildingTyped,jdbcType=VARCHAR},
+      </if>
+      <if test="soldHouseavgprice != null" >
+        Sold_HouseAvgPrice = #{soldHouseavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldBusinessavgprice != null" >
+        Sold_BusinessAvgPrice = #{soldBusinessavgprice,jdbcType=NUMERIC},
+      </if>
+      <if test="soldHousetotalarea != null" >
+        Sold_HouseTotalArea = #{soldHousetotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="soldBusinesstotalarea != null" >
+        Sold_BusinessTotalArea = #{soldBusinesstotalarea,jdbcType=NUMERIC},
+      </if>
+      <if test="updatedate != null" >
+        UpdateDate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Building_ID = #{buildingId,jdbcType=VARCHAR}
+      and Project_ID = #{projectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ml.diamond.entity.Buildings" >
+    update Buildings
+    set Building_Name = #{buildingName,jdbcType=VARCHAR},
+      Project_Name = #{projectName,jdbcType=VARCHAR},
+      Group_Name = #{groupName,jdbcType=VARCHAR},
+      Open_Date = #{openDate,jdbcType=TIMESTAMP},
+      Online_TotalCount = #{onlineTotalcount,jdbcType=INTEGER},
+      Online_TotalArea = #{onlineTotalarea,jdbcType=NUMERIC},
+      Available_TotalCountWeb = #{availableTotalcountweb,jdbcType=INTEGER},
+      Available_TotalCount = #{availableTotalcount,jdbcType=INTEGER},
+      Available_TotalArea = #{availableTotalarea,jdbcType=NUMERIC},
+      Booked_TotalCount = #{bookedTotalcount,jdbcType=INTEGER},
+      Sold_TotalCount = #{soldTotalcount,jdbcType=INTEGER},
+      Sold_TotalArea = #{soldTotalarea,jdbcType=NUMERIC},
+      Sold_AvgPrice = #{soldAvgprice,jdbcType=NUMERIC},
+      Room_URL = #{roomUrl,jdbcType=VARCHAR},
+      InsertDate = #{insertdate,jdbcType=TIMESTAMP},
+      Today_BookedCount = #{todayBookedcount,jdbcType=INTEGER},
+      Today_SoldCount = #{todaySoldcount,jdbcType=INTEGER},
+      IsUpdate = #{isupdate,jdbcType=INTEGER},
+      Room_TopFloor = #{roomTopfloor,jdbcType=INTEGER},
+      BuildingType = #{buildingtype,jdbcType=VARCHAR},
+      Presell_id = #{presellId,jdbcType=VARCHAR},
+      Presell_Name = #{presellName,jdbcType=VARCHAR},
+      Building_idt = #{buildingIdt,jdbcType=VARCHAR},
+      Building_TypeD = #{buildingTyped,jdbcType=VARCHAR},
+      Sold_HouseAvgPrice = #{soldHouseavgprice,jdbcType=NUMERIC},
+      Sold_BusinessAvgPrice = #{soldBusinessavgprice,jdbcType=NUMERIC},
+      Sold_HouseTotalArea = #{soldHousetotalarea,jdbcType=NUMERIC},
+      Sold_BusinessTotalArea = #{soldBusinesstotalarea,jdbcType=NUMERIC},
+      UpdateDate = #{updatedate,jdbcType=TIMESTAMP}
+    where Building_ID = #{buildingId,jdbcType=VARCHAR}
+      and Project_ID = #{projectId,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getCount" resultType="java.lang.Integer" parameterType="com.ml.diamond.entity.Buildings" >
+    select count(1) from Buildings
+  </select>
+
+  <select id="getPage" resultType="java.lang.Integer" parameterType="com.ml.diamond.entity.Buildings" >
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM
+        rooms a,
+        (SELECT TOP #{limit} row_number () OVER (ORDER BY Room_ID DESC) n, room_id FROM rooms) b
+    WHERE
+        a.Room_ID = b.Room_ID
+    AND b.n > #{offset}
+    ORDER BY b.n ASC
+  </select>
+
+</mapper>
