@@ -3,6 +3,7 @@ package com.ml.diamond.controller;
 import com.ml.diamond.entity.Rooms;
 import com.ml.diamond.service.RoomsService;
 import com.ml.diamond.utils.DataGrid;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Api(value = "房间信息接口", description = "房间信息接口")
 @RestController
 @RequestMapping("/api/rooms")
 @Slf4j
