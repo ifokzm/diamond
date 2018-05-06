@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ml.diamond.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.ml.diamond.entity.User" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="Trans_Date" property="transDate" jdbcType="TIMESTAMP" />
+    <result column="Trans_Time" property="transTime" jdbcType="VARCHAR" />
+    <result column="Project_ID" property="projectId" jdbcType="VARCHAR" />
+    <result column="Project_Name" property="projectName" jdbcType="VARCHAR" />
+    <result column="District" property="district" jdbcType="VARCHAR" />
+    <result column="Building_ID" property="buildingId" jdbcType="VARCHAR" />
+    <result column="Building_Name" property="buildingName" jdbcType="VARCHAR" />
+    <result column="Room_ID" property="roomId" jdbcType="VARCHAR" />
+    <result column="Room_Name" property="roomName" jdbcType="VARCHAR" />
+    <result column="Trans_Type" property="transType" jdbcType="VARCHAR" />
+    <result column="Trans_Area" property="transArea" jdbcType="NUMERIC" />
+    <result column="trans_AvgPrice" property="transAvgprice" jdbcType="NUMERIC" />
+    <result column="Room_Usage" property="roomUsage" jdbcType="VARCHAR" />
+    <result column="Room_Type" property="roomType" jdbcType="VARCHAR" />
+    <result column="P_AvgPrice" property="pAvgprice" jdbcType="NUMERIC" />
+    <result column="Trans_FromTo" property="transFromto" jdbcType="VARCHAR" />
+    <result column="P_HouseAvgPrice" property="pHouseavgprice" jdbcType="NUMERIC" />
+    <result column="P_BusinessAvgPrice" property="pBusinessavgprice" jdbcType="NUMERIC" />
+    <result column="P_OfficeAvgPrice" property="pOfficeavgprice" jdbcType="NUMERIC" />
+    <result column="Trans_TotalPrice" property="transTotalprice" jdbcType="NUMERIC" />
+    <result column="Generalize_Name" property="generalizeName" jdbcType="VARCHAR" />
+    <result column="Room_M" property="roomM" jdbcType="VARCHAR" />
+    <result column="Room_RefPrice" property="roomRefprice" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, Trans_Date, Trans_Time, Project_ID, Project_Name, District, Building_ID, Building_Name, 
+    Room_ID, Room_Name, Trans_Type, Trans_Area, trans_AvgPrice, Room_Usage, Room_Type, 
+    P_AvgPrice, Trans_FromTo, P_HouseAvgPrice, P_BusinessAvgPrice, P_OfficeAvgPrice, 
+    Trans_TotalPrice, Generalize_Name, Room_M, Room_RefPrice
+  </sql>
+
+  <select id="getCount" resultType="java.lang.Integer" parameterType="com.ml.diamond.entity.User" >
+    select count(1) from SYS_USER
+  </select>
+
+  <select id="getPage" resultMap="BaseResultMap" parameterType="com.ml.diamond.entity.User" >
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    SYS_USER a,
+    (SELECT TOP ${limit} row_number () OVER (ORDER BY ID DESC) n, ID FROM SYS_USER) b
+    WHERE
+    a.ID = b.ID
+    AND b.n > ${offset}
+    ORDER BY b.n ASC
+  </select>
+</mapper>

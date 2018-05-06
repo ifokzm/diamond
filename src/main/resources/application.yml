@@ -22,12 +22,12 @@ spring:
       driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
       initial-size: 1
       min-idle: 1
-      max-active: 20
+      max-active: 5
       test-on-borrow: true
       max-wait: 60000
       time-between-eviction-runs-millis: 60000
       min-evictable-idle-time-millis: 300000
-      validation-query: SELECT 1 FROM DUAL
+      validation-query: SELECT 1
       test-While-Idle: true
       test-on-return: false
       pool-prepared-statements: false
@@ -43,12 +43,12 @@ spring:
       driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
       initial-size: 1
       min-idle: 1
-      max-active: 20
+      max-active: 5
       test-on-borrow: true
       max-wait: 60000
       time-between-eviction-runs-millis: 60000
       min-evictable-idle-time-millis: 300000
-      validation-query: SELECT 1 FROM DUAL
+      validation-query: SELECT 1
       test-While-Idle: true
       test-on-return: false
       pool-prepared-statements: false
