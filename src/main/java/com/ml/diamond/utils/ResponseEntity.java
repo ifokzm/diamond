@@ -16,6 +16,16 @@ public class ResponseEntity<T> implements Serializable {
     String url = "";
     Integer wait = 3;
 
+    public ResponseEntity(T data) {
+        this.data = data;
+    }
+
+    public ResponseEntity<T> success() {
+        this.code = OK;
+        this.msg = "";
+        return this;
+    }
+
     public ResponseEntity<T> success(String msg) {
         this.code = OK;
         this.msg = msg;

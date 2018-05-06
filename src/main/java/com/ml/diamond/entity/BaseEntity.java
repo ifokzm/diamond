@@ -10,7 +10,7 @@ import java.util.Date;
 
 @ApiModel
 @Data
-public class BaseEntity {
+public class BaseEntity implements java.io.Serializable{
     private Long id;
     /**
      * 跳转页面

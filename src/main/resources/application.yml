@@ -1,5 +1,8 @@
 server:
   port: 8080
+  sessionTimeout: 30
+  error:
+    path: /error
 jasypt:
   encryptor:
     password: test
@@ -54,12 +57,12 @@ spring:
   mvc:
     view:
       prefix: /static/
-      suffix:
+      suffix: .html
 
 
 mybatis:
   mapper-locations: classpath:mapping/*.xml
-  type-aliases-package: com.ml.scmc.entity
+  type-aliases-package: com.ml.diamond.entity
   #config-location: classpath:mybatis-config.xml
 
 #日志
@@ -71,18 +74,3 @@ logging:
     org.mybatis: DEBUG
     com.ml.diamond: DEBUG
   file: ../logs/logback.log
-
----
-spring:
-  profiles: sit
-  datasource:
-      #主库
-      master:
-        url: jdbc:sqlserver://101.132.172.250:1433;DatabaseName=KR_OEE
-        username: ENC(6FC7Bu/rTXPW7YSnHJIQYg==)
-        password: ENC(eGJf2IFLEMuz3fxcJPAht45yMyE94+sZ)
-      #从库
-      slave:
-        url: jdbc:sqlserver://101.132.172.250:1433;DatabaseName=KR_MES
-        username: ENC(6FC7Bu/rTXPW7YSnHJIQYg==)
-        password: ENC(eGJf2IFLEMuz3fxcJPAht45yMyE94+sZ)
