@@ -316,4 +316,20 @@
       Room_RefPrice = #{roomRefprice,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getCount" resultType="java.lang.Integer" parameterType="com.ml.diamond.entity.Trans" >
+    select count(1) from Trans
+  </select>
+
+  <select id="getPage" resultType="com.ml.diamond.entity.Trans" parameterType="com.ml.diamond.entity.Trans" >
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    Trans a,
+    (SELECT TOP #{limit} row_number () OVER (ORDER BY ID DESC) n, ID FROM Trans) b
+    WHERE
+    a.ID = b.ID
+    AND b.n > #{offset}
+    ORDER BY b.n ASC
+  </select>
 </mapper>

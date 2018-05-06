@@ -6,7 +6,6 @@
     <result column="Room_Name" property="roomName" jdbcType="VARCHAR" />
     <result column="Project_ID" property="projectId" jdbcType="VARCHAR" />
     <result column="Project_Name" property="projectName" jdbcType="VARCHAR" />
-    <result column="District" property="district" jdbcType="VARCHAR" />
     <result column="Building_ID" property="buildingId" jdbcType="VARCHAR" />
     <result column="Building_Name" property="buildingName" jdbcType="VARCHAR" />
     <result column="RoomUsage_new" property="roomusageNew" jdbcType="VARCHAR" />
@@ -39,7 +38,7 @@
     <result column="UpdateDate" property="updatedate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    Room_ID, Room_Name, Project_ID, Project_Name, District, Building_ID, Building_Name, 
+    Room_ID, Room_Name, Project_ID, Project_Name, Building_ID, Building_Name,
     RoomUsage_new, Room_Usage11, Room_TypeUrl, Room_BuildArea, Room_Status, InsertDate, 
     Room_RefPrice, Room_Location, Room_ShareArea, Room_InsideArea, Room_Url, Room_HX, 
     Room_UsageUrl, Room_ReferPrice, Generalize_Name, trans_avgprice, trans_totalprice, 
@@ -445,4 +444,21 @@
       UpdateDate = #{updatedate,jdbcType=TIMESTAMP}
     where Room_ID = #{roomId,jdbcType=VARCHAR}
   </update>
+
+  <select id="getCount" resultType="java.lang.Integer" parameterType="com.ml.diamond.entity.Rooms" >
+    select count(1) from Rooms
+  </select>
+
+  <select id="getPage" resultType="com.ml.diamond.entity.Rooms" parameterType="com.ml.diamond.entity.Rooms" >
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    Rooms a,
+    (SELECT TOP ${limit} row_number () OVER (ORDER BY Room_ID DESC) n, Room_ID AS 'RoomID' FROM Rooms) b
+    WHERE
+    a.Room_ID = b.RoomID
+    AND b.n > ${offset}
+    ORDER BY b.n ASC
+  </select>
+
 </mapper>

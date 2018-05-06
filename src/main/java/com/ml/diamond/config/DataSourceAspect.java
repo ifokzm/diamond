@@ -24,8 +24,8 @@ public class DataSourceAspect {
     public void aspect() {
     }
 
-    // @Before("@annotation(com.ml.diamond.config.DS)")
-    @Before("aspect()")
+    @Before("@annotation(com.ml.diamond.config.DS)")
+//    @Before("aspect()")
     private void before(JoinPoint point) {
         Object target = point.getTarget();
         String method = point.getSignature().getName();

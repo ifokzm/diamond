@@ -62,7 +62,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("DEMO API")//大标题
+                .title("南京默联 API")//大标题
                 .version("1.0")//版本
                 .build();
 

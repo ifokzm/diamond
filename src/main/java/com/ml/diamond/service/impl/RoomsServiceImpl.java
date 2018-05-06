@@ -30,6 +30,7 @@ public class RoomsServiceImpl implements RoomsService {
     }
 
     @Override
+    @DS(DataSourceType.Slave)
     public DataGrid<Rooms> getPage(Rooms rooms) {
         DataGrid<Rooms> dg = new DataGrid<Rooms>();
 

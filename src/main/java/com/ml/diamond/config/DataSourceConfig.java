@@ -27,7 +27,7 @@ public class DataSourceConfig {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name="dynamicDataSource")
+    @Bean(name = "dynamicDataSource")
     @Primary    //优先使用，多数据源
     public DataSource dataSource() {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
@@ -36,7 +36,7 @@ public class DataSourceConfig {
         //设置默认数据源
         dynamicDataSource.setDefaultTargetDataSource(master);
         //配置多数据源
-        Map<Object,Object> map = new HashMap<>();
+        Map<Object, Object> map = new HashMap<>();
         map.put(DataSourceType.Master.getName(), master);   //key需要跟ThreadLocal中的值对应
         map.put(DataSourceType.Slave.getName(), slave);
         dynamicDataSource.setTargetDataSources(map);

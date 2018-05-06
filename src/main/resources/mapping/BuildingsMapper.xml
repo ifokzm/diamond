@@ -411,7 +411,7 @@
       <include refid="Base_Column_List" />
     FROM
         rooms a,
-        (SELECT TOP #{limit} row_number () OVER (ORDER BY Room_ID DESC) n, room_id FROM rooms) b
+          (SELECT TOP #{limit} row_number () OVER (ORDER BY Room_ID DESC) n, room_id FROM rooms) b
     WHERE
         a.Room_ID = b.Room_ID
     AND b.n > #{offset}
