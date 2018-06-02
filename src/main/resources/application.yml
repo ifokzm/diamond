@@ -36,7 +36,7 @@ spring:
     #从库(N)
     slave:
       type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:sqlserver://61.174.60.20:1433;DatabaseName=AnHui_HeFeiNew
+      url: jdbc:sqlserver://61.174.60.20:1433;DatabaseName=JiangSu_Nanjing
       # sa
       username: ENC(G4nTINcbnHx5W8hHNJhvfA==)
       password: ENC(k7ehZUOi3GDmyzqu0J5wFTwly+lIdpup)
@@ -59,11 +59,10 @@ spring:
       prefix: /static/
       suffix: .html
 
-
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.ml.diamond.entity
-  #config-location: classpath:mybatis-config.xml
+#  config-location: classpath:mybatis-config.xml
 
 #日志
 logging:

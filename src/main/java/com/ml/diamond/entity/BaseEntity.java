@@ -80,4 +80,20 @@ public class BaseEntity implements java.io.Serializable{
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date deleteTime = new Date();
+
+    public int getLimit() {
+        return limit + this.offset;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
+
+//    public int getOffset() {
+//        return this.offset > 0 ? (this.offset + this.limit) : this.offset;
+//    }
+//
+//    public void setOffset(int offset) {
+//        this.offset = offset;
+//    }
 }

@@ -13,7 +13,7 @@
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-                        connectionURL="jdbc:sqlserver://192.168.1.19:1433;DatabaseName=JiangSu_NanJing" userId="sa" password="sa">
+                        connectionURL="jdbc:sqlserver://101.132.172.250:1433;DatabaseName=K765316_DW" userId="mes" password="p@ssw0rd">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
@@ -32,7 +32,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- TODO 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-        <table tableName="Trans" domainObjectName="Trans" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <table tableName="EQ_EQUIPMENT" domainObjectName="Equipment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
         </table>
     </context>

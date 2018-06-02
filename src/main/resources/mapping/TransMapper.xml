@@ -318,18 +318,110 @@
   </update>
 
   <select id="getCount" resultType="java.lang.Integer" parameterType="com.ml.diamond.entity.Trans" >
-    select count(1) from Trans
+    SELECT
+    count( 1 ) AS maxrec,
+    CEILING( count( 1 ) / 100 ) AS maxpage
+    FROM
+    projects p,
+    buildings b,
+    rooms r
+    WHERE
+    p.project_id = b.project_id
+    AND b.project_id = r.project_id
+    AND b.building_id = r.building_id
+    AND r.project_id = b.project_id
+    AND r.project_id = p.project_id
+    AND r.trans_date BETWEEN '2018-05-01' AND '2018-05-08'
+    AND r.room_usage IN ( '花园洋房', '一般住宅' )
+    AND r.trans_fromto IN (
+    '被限制->已办产权',
+    '被限制->已备案',
+    '被限制->已签约',
+    '成交',
+    '开发商保留->已办产权',
+    '可售->已办产权',
+    '可售->已备案',
+    '可售->已签约',
+    '已办产权->已办产权',
+    '已备案->已备案',
+    '已签约->已签约',
+    '已认购->已办产权',
+    '已认购->已备案',
+    '已认购->已签约'
+    )
   </select>
 
   <select id="getPage" resultType="com.ml.diamond.entity.Trans" parameterType="com.ml.diamond.entity.Trans" >
-    SELECT
-    <include refid="Base_Column_List" />
+    <!--SELECT-->
+    <!--<include refid="Base_Column_List" />-->
+    <!--FROM-->
+    <!--Trans a,-->
+    <!--(SELECT TOP #{limit} row_number () OVER (ORDER BY ID DESC) n, ID FROM Trans) b-->
+    <!--WHERE-->
+    <!--a.ID = b.ID-->
+    <!--AND b.n > #{offset}-->
+    <!--ORDER BY b.n ASC-->
+    SELECT * FROM (
+    SELECT TOP ${limit}
+    ROW_NUMBER () OVER ( ORDER BY r.room_id ) AS rec,
+    p.Project_Name AS projectName,
+    p.Generalize_Name AS generalizeName,
+    p.District AS district,
+    ( CASE WHEN p.ProjectRegion IS NULL THEN '' ELSE p.ProjectRegion END ) AS projectRegion,
+    ( CASE WHEN p.ProjectRegion1 IS NULL THEN '' ELSE p.ProjectRegion1 END ) AS projectRegion1,
+    ( CASE WHEN p.ProjectRegiont IS NULL THEN '' ELSE p.ProjectRegiont END ) AS projectRegiont,
+    b.building_id AS buildingId,
+    b.Building_Name AS buildingName,
+    r.Room_Name AS roomName,
+    r.Room_BuildArea AS roomBuildArea,
+    r.Room_Type AS roomType,
+    r.Room_usage AS roomUsage,
+    r.Room_Status AS roomStatus,
+    ( CASE WHEN ISNUMERIC( r.room_RefPrice ) = 1 THEN CONVERT ( NUMERIC ( 18, 2 ), r.Room_RefPrice ) ELSE 0  END  ) AS roomRefPrice,
+    r.trans_avgprice AS transAvgPrice,
+    r.trans_totalprice AS transTotalPrice,
+    CONVERT ( VARCHAR ( 10 ), r.trans_date, 120 ) AS transDate,
+    r.Trans_type AS transType,
+    r.Trans_FromTo AS transFromTo,
+    r.room_floor AS roomFloor,
+    CONVERT ( VARCHAR ( 10 ), b.Open_Date, 120 ) AS openDate,
+    p.project_id AS projectId,
+    p.Group_Name AS groupName,
+    p.Agent AS agent,
+    b.BuildingType AS buildingType,
+    p.Developer AS developer,
+    p.Project_D_type AS projectDType,
+    b.Group_Name AS buildingGroupName,
+    b.Room_TopFloor AS roomTopFloor,
+    r.Room_ReLocation AS roomReLocation
     FROM
-    Trans a,
-    (SELECT TOP #{limit} row_number () OVER (ORDER BY ID DESC) n, ID FROM Trans) b
+    projects p,
+    buildings b,
+    rooms r
     WHERE
-    a.ID = b.ID
-    AND b.n > #{offset}
-    ORDER BY b.n ASC
+    p.project_id= b.project_id
+    AND b.project_id= r.project_id
+    AND b.building_id= r.building_id
+    AND r.project_id= b.project_id
+    AND r.project_id= p.project_id
+    AND r.trans_date BETWEEN '2018-05-01' AND '2018-05-08'
+    AND r.room_usage IN ( '花园洋房', '一般住宅' )
+    AND r.trans_fromto IN (
+    '被限制->已办产权',
+    '被限制->已备案',
+    '被限制->已签约',
+    '成交',
+    '开发商保留->已办产权',
+    '可售->已办产权',
+    '可售->已备案',
+    '可售->已签约',
+    '已办产权->已办产权',
+    '已备案->已备案',
+    '已签约->已签约',
+    '已认购->已办产权',
+    '已认购->已备案',
+    '已认购->已签约'
+    )) t
+    WHERE  rec > ${offset}
   </select>
 </mapper>

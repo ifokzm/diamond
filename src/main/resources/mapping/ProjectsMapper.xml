@@ -31,7 +31,7 @@
     <include refid="Base_Column_List" />
     FROM
     Projects a,
-    (SELECT TOP ${limit} row_number () OVER (ORDER BY Project_ID DESC) n, Project_ID AS 'projectId' FROM rooms) b
+    (SELECT TOP ${limit} row_number () OVER (ORDER BY Project_ID DESC) n, Project_ID AS 'projectId' FROM Projects) b
     WHERE
     a.Project_ID = b.projectId
     AND b.n > ${offset}

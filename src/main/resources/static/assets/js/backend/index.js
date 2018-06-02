@@ -373,14 +373,30 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'adminlte', 'form'], functi
             }
 
             $(window).resize();
+
+            /**
+             * 自定义
+             */
+            var lastlogin = get("lastlogin");
+            if(lastlogin){
+                lastlogin = JSON.parse(lastlogin);
+                $("#curr_user").html(lastlogin.username);
+                if(lastlogin.isAdmin != 1){
+                    $("#sys_mg").hide();
+                }
+            }else{
+                location.href = Backend.api.fixurl("/login.html");
+            }
+
         },
         login: function () {
-            var lastlogin = localStorage.getItem("lastlogin");
-            if (lastlogin) {
-                lastlogin = JSON.parse(lastlogin);
-                $("#profile-img").attr("src", Backend.api.cdnurl(lastlogin.avatar));
-                $("#pd-form-username").val(lastlogin.username);
-            }
+            // var lastlogin = localStorage.getItem("lastlogin");
+            // if (lastlogin) {
+            //     lastlogin = JSON.parse(lastlogin);
+            //     // $("#profile-img").attr("src", Backend.api.cdnurl(lastlogin.avatar));
+            //     $("#pd-form-username").val(lastlogin.username);
+            // }
+            localStorage.removeItem("lastlogin");
 
             //让错误提示框居中
             Fast.config.toastr.positionClass = "toast-top-center";
@@ -397,8 +413,8 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'adminlte', 'form'], functi
 
             //为表单绑定事件
             Form.api.bindevent($("#login-form"), null, function (data) {
-                localStorage.setItem("lastlogin", JSON.stringify({id: data.id, username: data.username, avatar: data.avatar}));
-                location.href = Backend.api.fixurl(data.url);
+                localStorage.setItem("lastlogin", JSON.stringify({id: data.id, username: data.groupName, isAdmin: data.isAdmin}));
+                location.href = Backend.api.fixurl("/"+data.url);
             });
         }
     };
