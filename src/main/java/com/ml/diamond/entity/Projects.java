@@ -44,8 +44,32 @@ public class Projects extends BaseEntity {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Timestamp firstOpenDate;
 
+    private Long firstOpenDateTime;
+
+    public Long getFirstOpenDateTime() {
+        return null == firstOpenDate ? null : firstOpenDate.getTime() / 1000 ;
+    }
+
     @ApiModelProperty("最近一次开盘")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Timestamp lastOpenDate;
+
+    private Long lastOpenDateTime;
+
+    public Long getLastOpenDateTime() {
+        return null == lastOpenDate ? null : lastOpenDate.getTime() / 1000;
+    }
+
+    @ApiModelProperty("成交均价")
+    private String transAvgPrice;
+    @ApiModelProperty("成交总价")
+    private String transTotalPrice;
+    @ApiModelProperty("小微板块")
+    private String projectRegion1;
+
+    @ApiModelProperty("申报单价")
+    private String declarePrice;
+    @ApiModelProperty("申报总价")
+    private String declareTotalPrice;
 
 }

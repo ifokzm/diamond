@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class UserController {
 
-
     @Autowired
     SysUserService service;
 
+    @ApiOperation("登录")
     @PostMapping(value = "login")
     @ResponseBody
     public ResponseEntity<SysUser> login(@RequestParam(value = "username", required = true) String username,

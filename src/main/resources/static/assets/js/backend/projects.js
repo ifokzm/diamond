@@ -23,18 +23,21 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 columns: [
                     [
                         {field: 'state', checkbox: true},
-                        {field: 'projectId', title: '项目号', operate: '=', sortable: true},
-                        {field: 'projectName', title: '项目名', operate: '='},
-                        {field: 'groupName', title: '企业系', operate: 'LIKE %...%', placeholder: '关键字，模糊搜索'},
+                        {field: 'projectId', title: '项目号', operate: false, visible: false},
                         {field: 'generalizeName', title: '推广名', operate: false},
-                        {field: 'district', title: '区', operate: false},
+                        {field: 'projectName', title: '项目名称', operate: 'LIKE %...%', placeholder: '模糊搜索'},
+                        {field: 'groupName', title: '企业系', operate: false},
+                        {field: 'district', title: '区域', operate: false},
                         {field: 'projectDType', title: '项目开发类型', operate: false},
                         {field: 'projectRegion', title: '板块', operate: false},
-                        {field: 'location', title: '地址', operate: false},
-                        {field: 'developer', title: '开发商'},
-                        {field: 'openDate', title: '开盘日期'},
-                        {field: 'firstOpenDate', title: '第一次开盘日期'},
-                        {field: 'lastOpenDate', title: '最近一次开盘'}
+                        {field: 'location', title: '项目地址', operate: 'LIKE %...%', placeholder: '模糊搜索'},
+                        {field: 'developer', title: '开发商', operate: 'LIKE %...%', placeholder: '模糊搜索'},
+                        {field: 'transAvgPrice', title: '成交均价', operate: 'BETWEEN', visible: false},
+                        {field: 'transTotalPrice', title: '成交总价', operate: 'BETWEEN', visible: false},
+                        {field: 'declarePrice', title: '申报单价', operate: 'BETWEEN', visible: false},
+                        {field: 'declareTotalPrice', title: '申报总价', operate: 'BETWEEN', visible: false},
+                        {field: 'firstOpenDateTime', title: '最早开盘', formatter: Table.api.formatter.date, operate: 'BETWEEN', type: 'date', addclass: 'datetimepicker', data: 'data-date-format="YYYY-MM-DD"'},
+                        {field: 'lastOpenDateTime', title: '最新开盘', formatter: Table.api.formatter.date, operate: 'BETWEEN', type: 'date', addclass: 'datetimepicker', data: 'data-date-format="YYYY-MM-DD"'}
                     ]
                 ],
                 //普通搜索
